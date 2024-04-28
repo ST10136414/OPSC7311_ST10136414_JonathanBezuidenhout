@@ -67,4 +67,8 @@
     <string name="prize">Prize:</string>
     <string name="target">Target</string>
     <string name="signUp">Sign up</string>
+    <string name="ProjectAndWorkOrdersDone" />
+    <string name="ProjectAndWorkordersDone" />
+    <string name="current_time">Current Time:</string>
+    <string name="current_time_label">Current Time: %s</string>
 </resources>
