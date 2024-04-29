@@ -1,11 +1,13 @@
-plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
-}
+ plugins {
+        alias(libs.plugins.androidApplication)
+        alias(libs.plugins.jetbrainsKotlinAndroid)
+    }
 
 android {
     namespace = "com.example.opsc7311"
     compileSdk = 34
+
+
 
     defaultConfig {
         applicationId = "com.example.opsc7311"
