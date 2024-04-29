@@ -67,6 +67,13 @@
     <string name="prize">Prize:</string>
     <string name="target">Target</string>
     <string name="signUp">Sign up</string>
+    <string name="current_time">Your Current Time Text Here</string>
+    <string name="project_det">
+Project Details
+</string>
+    <string name="project_nam">
+Project Name:
+</string>
 
 
     <string-array name="user_array">
@@ -117,4 +124,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="create_a_pr">Create a project</string>
+    <string name="Color">Color</string>
 </resources>
