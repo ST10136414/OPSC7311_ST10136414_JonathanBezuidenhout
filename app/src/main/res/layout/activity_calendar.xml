@@ -1,33 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".CalendarActivity">
+    tools:context=".CalendarActivity"
+    android:background="@color/black">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="282dp"
+    android:layout_height="36dp"
+    android:layout_marginTop="76dp"
+    android:text="S    M    T    W    T     F     S"
+    android:textColor="#FFFFFF"
+    android:textSize="22sp"
+    app:layout_constraintBottom_toTopOf="@+id/imageView11"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.527"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0" />
+
+<TextView
+    android:id="@+id/calendar"
+    android:layout_width="237dp"
+    android:layout_height="54dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="16dp"
+    android:fontFamily="@font/anton"
+    android:gravity="top"
+    android:text="CALENDAR"
+    android:textColor="#FFFFFF"
+    android:textSize="25sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.143"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/rectangle_2"
+        android:layout_width="533dp"
+        android:layout_height="14dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="184dp"
+        android:background="#FEE800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+    android:id="@+id/imageView11"
+    android:layout_width="325dp"
+    android:layout_height="57dp"
+    android:layout_marginTop="116dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.418"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/rounded_rectangle2" />
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="262dp"
+    android:layout_height="36dp"
+    android:text="9   10   11          13  14  15"
+    android:textColor="#FFFFFF"
+    android:textSize="22sp"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+    app:layout_constraintEnd_toEndOf="@+id/imageView11"
+    app:layout_constraintStart_toStartOf="@+id/imageView11"
+    app:layout_constraintTop_toTopOf="@+id/imageView11" />
+
+<TextView
+    android:id="@+id/textView3"
+    android:layout_width="27dp"
+    android:layout_height="29dp"
+    android:text="12"
+    android:textColor="#FEE800"
+    android:textSize="22sp"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+    app:layout_constraintEnd_toEndOf="@+id/imageView10"
+    app:layout_constraintStart_toStartOf="@+id/imageView10"
+    app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+<ImageView
+    android:id="@+id/imageView10"
+    android:layout_width="42dp"
+    android:layout_height="42dp"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+    app:layout_constraintEnd_toEndOf="@+id/imageView11"
+    app:layout_constraintHorizontal_bias="0.477"
+    app:layout_constraintStart_toStartOf="@+id/imageView11"
+    app:layout_constraintTop_toTopOf="@+id/imageView11"
+    app:layout_constraintVertical_bias="0.333"
+    app:srcCompat="@drawable/ring_1" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="411dp"
+        android:layout_height="336dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_2"
+        android:contentDescription="The scrollview to view possible times"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="54dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/frame" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-    <include layout="@layout/content_calendar" />
+<ImageView
+    android:id="@+id/navBtnDash"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="36dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/navBtnTimeSheet"
+    app:layout_constraintStart_toStartOf="parent"
+    app:srcCompat="@drawable/ellipse_1"
+    app:tint="#424242" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+<ImageView
+    android:id="@+id/navBtnTimeSheet"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="36dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/navBtnTimer"
+    app:layout_constraintStart_toEndOf="@+id/navBtnDash"
+    app:srcCompat="@drawable/ellipse_1"
+    app:tint="#424242" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+<ImageView
+    android:id="@+id/navBtnMore"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="36dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/navBtnReport"
+    app:srcCompat="@drawable/ellipse_1"
+    app:tint="#424242" />
+
+<ImageView
+    android:id="@+id/navBtnReport"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="36dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/navBtnMore"
+    app:layout_constraintStart_toEndOf="@+id/navBtnTimer"
+    app:srcCompat="@drawable/ellipse_1"
+    app:tint="#424242" />
+
+<ImageView
+    android:id="@+id/navBtnTimer"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="36dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/navBtnReport"
+    app:layout_constraintStart_toEndOf="@+id/navBtnTimeSheet"
+    app:srcCompat="@drawable/ellipse_1"
+    app:tint="#424242" />
+
+<ImageView
+    android:id="@+id/dashIcon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="@+id/navBtnDash"
+    app:layout_constraintEnd_toEndOf="@+id/navBtnDash"
+    app:layout_constraintStart_toStartOf="@+id/navBtnDash"
+    app:layout_constraintTop_toTopOf="@+id/navBtnDash"
+    app:srcCompat="@drawable/boxes_symbol_yellow" />
+
+<ImageView
+    android:id="@+id/timesheetIcon"
+    android:layout_width="31dp"
+    android:layout_height="33dp"
+    app:layout_constraintBottom_toBottomOf="@+id/navBtnTimeSheet"
+    app:layout_constraintEnd_toEndOf="@+id/navBtnTimeSheet"
+    app:layout_constraintStart_toStartOf="@+id/navBtnTimeSheet"
+    app:layout_constraintTop_toTopOf="@+id/navBtnTimeSheet"
+    app:srcCompat="@drawable/timesheet_icon" />
+
+<ImageView
+    android:id="@+id/timerIcon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="@+id/navBtnTimer"
+    app:layout_constraintEnd_toEndOf="@+id/navBtnTimer"
+    app:layout_constraintStart_toStartOf="@+id/navBtnTimer"
+    app:layout_constraintTop_toTopOf="@+id/navBtnTimer"
+    app:srcCompat="@drawable/clock_symbol_yellow" />
+
+<ImageView
+    android:id="@+id/reportIcon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="@+id/navBtnReport"
+    app:layout_constraintEnd_toEndOf="@+id/navBtnReport"
+    app:layout_constraintStart_toStartOf="@+id/navBtnReport"
+    app:layout_constraintTop_toTopOf="@+id/navBtnReport"
+    app:srcCompat="@drawable/planner_symbol" />
+
+<ImageView
+    android:id="@+id/moreIcon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="@+id/navBtnMore"
+    app:layout_constraintEnd_toEndOf="@+id/navBtnMore"
+    app:layout_constraintStart_toStartOf="@+id/navBtnMore"
+    app:layout_constraintTop_toTopOf="@+id/navBtnMore"
+    app:srcCompat="@drawable/ellipsis_symbol_yellow" />
+
+<ImageView
+    android:id="@+id/newEntryBtn"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="17dp"
+    app:layout_constraintBottom_toTopOf="@+id/rectangle_4"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:srcCompat="@drawable/plus_symbol"
+    app:tint="#FEE800" />
+
+<View
+    android:id="@+id/rectangle_4"
+    android:layout_width="533dp"
+    android:layout_height="14dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginBottom="108dp"
+    android:background="#FEE800"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.491"
+    app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

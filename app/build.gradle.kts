@@ -6,6 +6,8 @@ plugins {
 android {
     namespace = "com.example.opsc7311"
     compileSdk = 34
+    viewBinding.enable = true
+    viewBinding.enable = true
 
     defaultConfig {
         applicationId = "com.example.opsc7311"
