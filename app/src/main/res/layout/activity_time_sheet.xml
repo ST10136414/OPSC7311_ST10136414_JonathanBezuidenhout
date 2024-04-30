@@ -100,7 +100,7 @@
         app:layout_constraintVertical_bias="0.333"
         app:srcCompat="@drawable/ring_1" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/CalendarButton"
         android:layout_width="52dp"
         android:layout_height="46dp"
@@ -319,6 +319,14 @@
         app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
         app:layout_constraintStart_toStartOf="@+id/rectangle_3"
         app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

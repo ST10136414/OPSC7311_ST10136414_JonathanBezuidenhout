@@ -4,13 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 
-fun openIntent(context: Context, parameter: String, activityToOpen: Class<*>)
+fun openIntent(context: Context, activityToOpen: Class<*>)
 {
     val intent = Intent(context, activityToOpen)
     //creates an intenet object that will request that a page be opened
 
     //put "parameter" value instead of "order"
-    intent.putExtra("parameter", parameter)
+    //intent.putExtra("parameter", parameter)
 
     context.startActivity(intent)
 }

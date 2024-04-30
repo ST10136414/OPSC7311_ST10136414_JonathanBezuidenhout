@@ -1,8 +1,11 @@
 package com.example.opsc7311
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,30 +13,17 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.opsc7311.databinding.ActivityTimeSheetBinding
 
-class TimeSheetActivity : AppCompatActivity(), View.OnClickListener {
+class TimeSheetActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_time_sheet)
-
-        val binding=ActivityTimeSheetBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        //
-        binding.CalendarButton.setOnClickListener(this)
-
-
-        //no clue what this does????
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-
+            val button1 = findViewById<Button>(R.id.button2)
+            button1.setOnClickListener {
+                val intent = Intent(this, CalendarActivity::class.java)
+                startActivity(intent)
+            }
         }
-    }
-
-    override fun onClick(v: View?) {
-        //this navigates to the Calendar activity
-        openIntent(applicationContext, "parameter text", CalendarActivity::class.java)
-    }
 }
+
+
