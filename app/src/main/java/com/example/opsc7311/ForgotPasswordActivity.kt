@@ -13,10 +13,11 @@ class ForgotPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_forgot_password)
-            val button1 = findViewById<Button>(R.id.backToSignInBtn)
-            button1.setOnClickListener{}
-            val intent1 = Intent(this, SignInActivity::class.java)
-            startActivity(intent)
 
+        val button1 = findViewById<Button>(R.id.backToSignInBtn)
+        button1.setOnClickListener {
+            val intent1 = Intent(this, SignInActivity::class.java)
+            startActivity(intent1)
+        }
     }
 }

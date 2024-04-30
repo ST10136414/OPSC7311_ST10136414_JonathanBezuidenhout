@@ -68,4 +68,6 @@
     <string name="target">Target</string>
     <string name="signUp">Sign up</string>
     <string name="sendInstructions">Send Instructions</string>
+    <string name="notifications">Notifications</string>
+<string name="noNewsYetCheckBackSoon">No News Yet! Check Back Soon</string>
 </resources>
