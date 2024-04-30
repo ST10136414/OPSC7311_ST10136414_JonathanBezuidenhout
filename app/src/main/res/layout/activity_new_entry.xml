@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:clipToOutline="true"
+    android:orientation="vertical"
+    android:outlineAmbientShadowColor="#000000"
+    android:outlineSpotShadowColor="#000000"
+    tools:context=".NewEntryActivity">
+
+
+    <ImageButton
+        android:id="@+id/imgButtonAddEntry"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="25dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/tick_symbol_white" />
+
+    <TextView
+        android:id="@+id/txtAddImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="40dp"
+        android:text="Add Image"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/txtPlan"
+        app:layout_constraintTop_toBottomOf="@+id/imgTimer" />
+
+    <TextView
+        android:id="@+id/txtStartTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="26dp"
+        android:text="Start Timer"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/txtAddImage"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/imgTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtStartTimer"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/timer_symbol" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="38dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
+        android:background="#000000"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/txtNewEntry"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrowsymbol" />
+
+    <TextView
+        android:id="@+id/txtNewEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="99dp"
+        android:fontFamily="@font/anton"
+        android:text="NEW ENTRY"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/rectangle_3"
+        app:layout_constraintEnd_toStartOf="@+id/imgButtonAddEntry"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="408dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:background="#FEE800"
+        app:layout_constraintBottom_toTopOf="@+id/rectangle_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNewEntry"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinSelectProject"
+        android:layout_width="251dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/spinner_background"
+        android:backgroundTint="#FFFFFF"
+        android:text="Select Project"
+        app:layout_constraintBottom_toTopOf="@+id/rectangle_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.785" />
+
+    <View
+        android:id="@+id/rectangle_3"
+        android:layout_width="408dp"
+        android:layout_height="7dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#FEE800"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.201" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="288dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/text_input_layout_rounded"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_3"
+        app:layout_constraintVertical_bias="0.021">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@android:color/transparent"
+            android:hint="Note"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="288dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_corner_shape"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintVertical_bias="0.034">
+
+        <TextView
+            android:id="@+id/txtLoggedTime"
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingTop="11dp"
+            android:text="Logged Time" />
+
+        <TextView
+            android:id="@+id/txtDisplayLoggedTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingTop="11dp"
+            android:text="0m" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtPlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:text="Plan"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/imgCalender"
+        app:layout_constraintTop_toBottomOf="@+id/imgRightArrow" />
+
+    <ImageView
+        android:id="@+id/imgCalender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLeftArrow"
+        app:srcCompat="@drawable/calender_symbol" />
+
+    <ImageView
+        android:id="@+id/imgRightArrow"
+        android:layout_width="37dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="24dp"
+
+        android:layout_marginEnd="9dp"
+        android:scaleX="-1"
+        app:layout_constraintEnd_toStartOf="@+id/txtFromAndTo"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/arrow_symbol" />
+
+    <TextView
+        android:id="@+id/txtFromAndTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:text="From and To"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/imgTimer"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/imgCamera"
+        android:layout_width="38dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtAddImage"
+        app:layout_constraintTop_toBottomOf="@+id/txtFromAndTo"
+        app:srcCompat="@drawable/ph_camera" />
+
+    <ImageView
+        android:id="@+id/imgLeftArrow"
+        android:layout_width="37dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/arrow_symbol" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="408dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="169dp"
+        android:layout_marginBottom="216dp"
+        android:background="#FEE800"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddImage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

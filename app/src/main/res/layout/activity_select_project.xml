@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:clipToOutline="true"
+    android:orientation="vertical"
+    android:outlineAmbientShadowColor="#000000"
+    android:outlineSpotShadowColor="#000000"
+    tools:context=".SelectProjectActivity">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="31dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/backarrowsymbol"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="19dp" />
+
+    <TextView
+        android:id="@+id/txtSelectProjectTitle"
+        android:layout_width="152dp"
+        android:layout_height="48dp"
+        android:fontFamily="@font/anton"
+        android:text="SELECT PROJECT"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="408dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#FEE800"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="77dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
