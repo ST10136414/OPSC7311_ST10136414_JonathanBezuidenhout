@@ -9,6 +9,40 @@
     tools:context=".CreateProject">
 
 
+    <Button
+        android:id="@+id/buttongreen"
+        android:layout_width="32dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="26dp"
+
+        android:backgroundTint="#07F811"
+        android:elevation="10dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toEndOf="@+id/project_color" />
+
+    <Button
+        android:id="@+id/buttonyellow"
+        android:layout_width="32dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFEB3B"
+        android:elevation="10dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintStart_toEndOf="@+id/project_color" />
+
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="420dp"
@@ -27,7 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168"
         app:srcCompat="@drawable/rectangle_78" />
 
     <TextView
@@ -51,11 +84,16 @@
         android:layout_height="22dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
         android:gravity="top"
         android:text="@string/project_det"
         android:textAppearance="@style/project_det"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="129dp" />
+        app:layout_constraintBottom_toTopOf="@+id/project_nam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.078" />
 
     <TextView
         android:id="@+id/project_nam"
@@ -63,11 +101,14 @@
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="12dp"
         android:gravity="top"
         android:text="@string/project_nam"
         android:textAppearance="@style/project_nam"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="191dp" />
+        app:layout_constraintBottom_toTopOf="@+id/project_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/project_startdate"
@@ -75,11 +116,14 @@
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="28dp"
         android:gravity="top"
         android:text="@string/startDate"
         android:textAppearance="@style/project_nam"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="337dp" />
+        app:layout_constraintBottom_toTopOf="@+id/project_enddate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/project_budget"
@@ -87,11 +131,14 @@
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="24dp"
         android:gravity="top"
         android:text="@string/budget"
         android:textAppearance="@style/project_nam"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="450dp" />
+        app:layout_constraintBottom_toTopOf="@+id/project_hrlyrate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/project_client"
@@ -99,11 +146,14 @@
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="16dp"
         android:gravity="top"
         android:text="@string/client"
         android:textAppearance="@style/project_nam"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="285dp" />
+        app:layout_constraintBottom_toTopOf="@+id/project_startdate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/project_enddate"
@@ -111,11 +161,14 @@
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="24dp"
         android:gravity="top"
         android:text="@string/endDate"
         android:textAppearance="@style/project_nam"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="393dp" />
+        app:layout_constraintBottom_toTopOf="@+id/project_budget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/project_hrlyrate"
@@ -123,11 +176,15 @@
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="117dp"
         android:gravity="top"
         android:text="@string/hourlyRate"
         android:textAppearance="@style/project_nam"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="504dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <TextView
         android:id="@+id/project_color"
@@ -135,11 +192,145 @@
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="20dp"
         android:gravity="top"
         android:text="@string/Color"
         android:textAppearance="@style/project_nam"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="234dp" />
+        app:layout_constraintBottom_toTopOf="@+id/project_client"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="84dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonpurple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toEndOf="@+id/project_nam"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <EditText
+        android:id="@+id/editTextClient"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="28dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDateEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toEndOf="@+id/project_startdate" />
+
+    <EditText
+        android:id="@+id/editTextDateStart"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/editTextClient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toEndOf="@+id/project_client" />
+
+    <EditText
+        android:id="@+id/editTextDateEnd"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="28dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toEndOf="@+id/project_enddate" />
+
+    <EditText
+        android:id="@+id/editTextNumber3"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toEndOf="@+id/project_budget" />
+
+    <EditText
+        android:id="@+id/editTextNumber4"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="121dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toEndOf="@+id/project_hrlyrate" />
+
+    <Button
+        android:id="@+id/buttonRed"
+        android:layout_width="32dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/red"
+        android:elevation="10dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/project_color" />
+
+    <Button
+        android:id="@+id/buttonpurple"
+        android:layout_width="32dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="26dp"
+        android:elevation="10dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/project_color" />
+
+    <Button
+        android:id="@+id/buttonCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FFEB3B"
+        android:text="Create Project"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
