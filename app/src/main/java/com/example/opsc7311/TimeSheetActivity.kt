@@ -18,11 +18,11 @@ class TimeSheetActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_time_sheet)
-            val button1 = findViewById<Button>(R.id.button2)
-            button1.setOnClickListener {
-                val intent = Intent(this, CalendarActivity::class.java)
-                startActivity(intent)
-            }
+            //val button1 = findViewById<Button>(R.id.button2)
+          //  button1.setOnClickListener {
+             //   val intent = Intent(this, CalendarActivity::class.java)
+             //   startActivity(intent)
+            //}
         }
 }
 

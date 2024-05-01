@@ -22,7 +22,7 @@
         android:elevation="10dp"
         android:padding="16dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintBottom_toTopOf="@+id/editTxtClientName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.395"
         app:layout_constraintStart_toEndOf="@+id/project_color" />
@@ -38,7 +38,7 @@
         android:elevation="10dp"
         android:padding="16dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintBottom_toTopOf="@+id/editTxtClientName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toEndOf="@+id/project_color" />
@@ -202,7 +202,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTxtProjectName"
         android:layout_width="173dp"
         android:layout_height="27dp"
         android:layout_marginTop="84dp"
@@ -210,7 +210,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textColor="@android:color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/buttonpurple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
@@ -219,74 +219,52 @@
         app:layout_constraintVertical_bias="0.186" />
 
     <EditText
-        android:id="@+id/editTextClient"
+        android:id="@+id/editTxtClientName"
         android:layout_width="173dp"
         android:layout_height="27dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginBottom="334dp"
         android:background="@android:color/white"
         android:ems="10"
-        android:inputType="date"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDateEnd"
+        android:inputType="text"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toEndOf="@+id/project_startdate" />
+        app:layout_constraintStart_toEndOf="@+id/project_client"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <EditText
-        android:id="@+id/editTextDateStart"
-        android:layout_width="173dp"
-        android:layout_height="27dp"
-        android:layout_marginBottom="24dp"
-        android:background="@android:color/white"
-        android:ems="10"
-        android:inputType="date"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextClient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toEndOf="@+id/project_client" />
-
-    <EditText
-        android:id="@+id/editTextDateEnd"
-        android:layout_width="173dp"
-        android:layout_height="27dp"
-        android:layout_marginBottom="28dp"
-        android:background="@android:color/white"
-        android:ems="10"
-        android:inputType="date"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toEndOf="@+id/project_enddate" />
-
-    <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/editTxtBudget"
         android:layout_width="173dp"
         android:layout_height="27dp"
         android:layout_marginBottom="24dp"
         android:background="@android:color/white"
         android:ems="10"
         android:inputType="number"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber4"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/editTxtHourlyRate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toEndOf="@+id/project_budget" />
+        app:layout_constraintStart_toEndOf="@+id/project_budget"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editTextNumber4"
+        android:id="@+id/editTxtHourlyRate"
         android:layout_width="173dp"
         android:layout_height="27dp"
         android:layout_marginBottom="121dp"
         android:background="@android:color/white"
         android:ems="10"
         android:inputType="number"
-        android:textColor="@android:color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toEndOf="@+id/project_hrlyrate" />
+        app:layout_constraintStart_toEndOf="@+id/project_hrlyrate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonRed"
@@ -299,7 +277,7 @@
         android:elevation="10dp"
         android:padding="16dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintBottom_toTopOf="@+id/editTxtClientName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/project_color" />
@@ -315,13 +293,13 @@
         android:elevation="10dp"
         android:padding="16dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDateStart"
+        app:layout_constraintBottom_toTopOf="@+id/editTxtClientName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toEndOf="@+id/project_color" />
 
     <Button
-        android:id="@+id/buttonCreate"
+        android:id="@+id/btnCreateProject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -331,6 +309,33 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtStartDate"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="100dp"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTxtClientName" />
+
+    <TextView
+        android:id="@+id/txtEndDate"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="27dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/editTxtBudget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/project_enddate"
+        app:layout_constraintTop_toBottomOf="@+id/txtStartDate"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
