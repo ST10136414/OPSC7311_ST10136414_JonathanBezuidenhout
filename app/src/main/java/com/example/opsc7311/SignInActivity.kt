@@ -24,5 +24,10 @@ class SignInActivity : AppCompatActivity() {
             startActivity(intent2)
 
         }
+        val button3 = findViewById<Button>(R.id.signInBtn)
+        button1.setOnClickListener {
+            val intent3 = Intent(this, DashboardActivity::class.java)
+            startActivity(intent3)
+        }
     }
 }
