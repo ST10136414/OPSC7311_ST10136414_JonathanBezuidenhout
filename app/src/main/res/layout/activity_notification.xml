@@ -75,7 +75,7 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/noNotoficationsTxt"
+        android:id="@+id/noNotificationsTxt"
         android:layout_width="203dp"
         android:layout_height="131dp"
         android:text="@string/noNewsYetCheckBackSoon"

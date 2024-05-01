@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_notification)
+        /*
         val button1 = findViewById<Button>(R.id.btnSignInToYourAccount)
         button1.setOnClickListener {
             val intent1 = Intent(this, SignInActivity::class.java)
@@ -29,6 +30,6 @@ class MainActivity : AppCompatActivity() {
         button3.setOnClickListener {
             val intent3 = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent3)
-        }
+        }*/
     }
 }
