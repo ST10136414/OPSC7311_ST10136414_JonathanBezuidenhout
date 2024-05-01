@@ -30,5 +30,22 @@ class DashboardActivity : AppCompatActivity() {
         viewReportBtn.setOnClickListener {
             Toast.makeText(this,"This opens the view report page", Toast.LENGTH_SHORT).show()
         }
+
+
+        //nav bar elements
+        //Navigates to timesheet
+        val navTimShtBtn = findViewById<ImageView>(R.id.navBtnTimeSheet)
+        navTimShtBtn.setOnClickListener{
+            val timeSheetIntent = Intent(this, TimeSheetActivity::class.java)
+            startActivity(timeSheetIntent)
+        }
+        //navigates to timer page
+        val navTmrBtn = findViewById<ImageView>(R.id.navBtnTimer)
+        navTmrBtn.setOnClickListener{
+            val tmrIntent = Intent(this, TimerActivity::class.java)
+            startActivity(tmrIntent)
+        }
+
+
     }
 }
