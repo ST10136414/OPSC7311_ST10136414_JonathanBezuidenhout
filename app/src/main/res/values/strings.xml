@@ -68,6 +68,7 @@
     <string name="target">Target</string>
     <string name="signUp">Sign up</string>
     <string name="current_time">Your Current Time Text Here</string>
+    <string name="sendInstructions">Send Instructions</string>
     <string name="project_det">
 Project Details
 </string>
