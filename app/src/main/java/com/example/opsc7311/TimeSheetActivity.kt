@@ -58,6 +58,7 @@ class TimeSheetActivity : AppCompatActivity(){
             startActivity(entryIntent)
         }
 
+        //val userArray = resources.getStringArray(R.array.user_array)
 
         //page functionality
         val uSpinner: Spinner = findViewById(R.id.user_spinner)
