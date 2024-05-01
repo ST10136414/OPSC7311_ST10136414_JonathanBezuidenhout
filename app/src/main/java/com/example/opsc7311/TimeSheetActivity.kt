@@ -12,7 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.opsc7311.databinding.ActivityTimeSheetBinding
+//import com.example.opsc7311.databinding.ActivityTimeSheetBinding
 
 class TimeSheetActivity : AppCompatActivity(){
 
@@ -21,6 +21,8 @@ class TimeSheetActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_time_sheet)
+
+        //navigation section
         //Navigates to the calendar
         val calendarButton = findViewById<ImageView>(R.id.CalendarButton)
         calendarButton.setOnClickListener {
@@ -49,6 +51,19 @@ class TimeSheetActivity : AppCompatActivity(){
         navMoreBtn.setOnClickListener{
             val moreIntent = Intent(this,/*the more page does not exist*/ )
         }*/
+
+        val newEntryBtn = findViewById<ImageView>(R.id.newEntryBtn)
+        newEntryBtn.setOnClickListener{
+            val entryIntent = Intent(this, NewEntryActivity::class.java)
+            startActivity(entryIntent)
+        }
+
+
+        //page functionality
+        val uSpinner: Spinner = findViewById(R.id.user_spinner)
+        val adapter = ArrayAdapter.createFromResource(this, R.array.user_array, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        uSpinner.adapter = adapter
 
     }
 }

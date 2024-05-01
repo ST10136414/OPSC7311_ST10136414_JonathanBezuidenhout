@@ -1,8 +1,10 @@
 package com.example.opsc7311
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +28,28 @@ class TimerActivity : AppCompatActivity() {
 
         // Schedule a task to update the time every second
         currentTimeTextView.postDelayed(updateTimeRunnable, 1000)
+
+
+        //navigation
+        //Navigates to dashboard
+        val navDashBtn = findViewById<ImageView>(R.id.navBtnDash)
+        navDashBtn.setOnClickListener{
+            val dashIntent = Intent(this, DashboardActivity::class.java)
+            startActivity(dashIntent)
+        }
+        //navigates to timer page
+        val navTmrBtn = findViewById<ImageView>(R.id.navBtnTimer)
+        navTmrBtn.setOnClickListener{
+            val tmrIntent = Intent(this, TimerActivity::class.java)
+            startActivity(tmrIntent)
+        }
+        //Navigates to timesheet
+        val navTimShtBtn = findViewById<ImageView>(R.id.navBtnTimeSheet)
+        navTimShtBtn.setOnClickListener{
+            val timeSheetIntent = Intent(this, TimeSheetActivity::class.java)
+            startActivity(timeSheetIntent)
+        }
+
     }
 
     private val updateTimeRunnable: Runnable = object : Runnable {
