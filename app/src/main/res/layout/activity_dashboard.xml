@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/territoryHeadingTxt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashboardActivity"
-    android:background="@color/black">
+    android:background="@color/black"
+    android:backgroundTint="@color/black"
+    tools:context=".DashboardActivity">
 
 
     <TextView
@@ -19,7 +20,7 @@
         android:fontFamily="@font/anton"
         android:gravity="top"
         android:text="DASHBOARD"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.143"
@@ -185,8 +186,8 @@
         android:layout_width="411dp"
         android:layout_height="97dp"
         android:layout_marginTop="23dp"
-        android:foregroundGravity="center_horizontal"
         android:contentDescription="The scroller to check dashboard options"
+        android:foregroundGravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectangle_2">
@@ -197,17 +198,28 @@
             android:foregroundGravity="center_vertical|center_horizontal"
             android:orientation="horizontal">
 
-            <ImageView
+
+            <Space
+                android:layout_width="33dp"
+                android:layout_height="155dp"
+                android:layout_weight="1" />
+
+            <ImageButton
                 android:id="@+id/createProjectBtn"
-                android:layout_width="138dp"
-                android:layout_height="wrap_content"
+                android:layout_width="106dp"
+                android:layout_height="85dp"
                 app:srcCompat="@drawable/createprojectbtn"
                 tools:layout_editor_absoluteX="45dp"
                 tools:layout_editor_absoluteY="333dp" />
 
+            <Space
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/InviteMemberBtn"
-                android:layout_width="138dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/invitememberbtn" />

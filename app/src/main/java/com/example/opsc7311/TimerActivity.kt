@@ -1,7 +1,6 @@
 package com.example.opsc7311
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -17,7 +16,7 @@ class TimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_timer)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.territoryHeadingTxt)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

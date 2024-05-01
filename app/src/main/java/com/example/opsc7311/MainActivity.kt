@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import android.widget.ImageButton
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val button1 = findViewById<Button>(R.id.btnSignInToYourAccount)
         button1.setOnClickListener {
-            val intent1 = Intent(this, SignInActivity::class.java)
+            val intent1 = Intent(this, DashboardActivity::class.java)
             startActivity(intent1)
         }
 
