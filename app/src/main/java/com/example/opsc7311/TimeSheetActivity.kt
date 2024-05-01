@@ -14,12 +14,14 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.opsc7311.databinding.ActivityTimeSheetBinding
 
 class TimeSheetActivity : AppCompatActivity(){
+
+    private lateinit var calendarButton: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_time_sheet)
-            val button1 = findViewById<Button>(R.id.button2)
-            button1.setOnClickListener {
+            calendarButton = findViewById<ImageButton>(R.id.CalendarButton)
+            calendarButton.setOnClickListener {
                 val intent = Intent(this, CalendarActivity::class.java)
                 startActivity(intent)
             }
