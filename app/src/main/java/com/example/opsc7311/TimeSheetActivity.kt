@@ -21,12 +21,34 @@ class TimeSheetActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_time_sheet)
+        //Navigates to the calendar
         val calendarButton = findViewById<ImageView>(R.id.CalendarButton)
         calendarButton.setOnClickListener {
-            val intent = Intent(this, CalendarActivity::class.java)
-            startActivity(intent)
+            val calIntent = Intent(this, CalendarActivity::class.java)
+            startActivity(calIntent)
         }
-
+        //Navigates to dashboard
+        val navDashBtn = findViewById<ImageView>(R.id.navBtnDash)
+        navDashBtn.setOnClickListener{
+            val dashIntent = Intent(this, DashboardActivity::class.java)
+            startActivity(dashIntent)
+        }
+        //navigates to timer page
+        val navTmrBtn = findViewById<ImageView>(R.id.navBtnTimer)
+        navTmrBtn.setOnClickListener{
+            val tmrIntent = Intent(this, TimerActivity::class.java)
+            startActivity(tmrIntent)
+        }
+        /*
+        val navReportBtn = findViewById<ImageView>(R.id.navBtnReport)
+        navReportBtn.setOnClickListener{
+            val repIntent = Intent(this,/*ReportActivity does not exist*/ )
+        }*/
+        /*
+        val navMoreBtn = findViewById<ImageView>(R.id.navBtnMore)
+        navMoreBtn.setOnClickListener{
+            val moreIntent = Intent(this,/*the more page does not exist*/ )
+        }*/
 
     }
 }
