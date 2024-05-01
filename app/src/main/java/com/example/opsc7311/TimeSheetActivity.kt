@@ -16,26 +16,15 @@ import com.example.opsc7311.databinding.ActivityTimeSheetBinding
 
 class TimeSheetActivity : AppCompatActivity(){
 
-    //private lateinit var calendarButton: ImageButton
+    //private lateinit var calendarButton: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_time_sheet)
-        var calendarButton = findViewById<ImageView>(R.id.CalendarButton)
+        val calendarButton = findViewById<ImageView>(R.id.CalendarButton)
         calendarButton.setOnClickListener {
             val intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
-        }
-        var DashBtn = findViewById<ImageView>(R.id.navBtnDash)
-        DashBtn.setOnClickListener{
-            val dashIntent = Intent(this, DashboardActivity::class.java)
-            startActivity(dashIntent)
-        }
-        //No Timer ACtivity?
-        var TimerBtn = findViewById<ImageView>(R.id.navBtnTimer)
-        TimerBtn.setOnClickListener{
-            val tmrIntent = Intent(this,TimerActivity::class.java)
-            startActivity(tmrIntent)
         }
 
 
