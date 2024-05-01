@@ -17,7 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".TimerActivity"
             android:exported="false" />

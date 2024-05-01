@@ -39,7 +39,7 @@ class TimeSheetActivity : AppCompatActivity(){
             val tmrIntent = Intent(this, TimerActivity::class.java)
             startActivity(tmrIntent)
         }
-        /*
+        /* These pages do not exist
         val navReportBtn = findViewById<ImageView>(R.id.navBtnReport)
         navReportBtn.setOnClickListener{
             val repIntent = Intent(this,/*ReportActivity does not exist*/ )
