@@ -17,7 +17,8 @@
             android:exported="false" />
         <activity
             android:name=".CreateProject"
-            android:exported="false" />
+            android:exported="true"
+            />
         <activity
             android:name=".CalendarActivity"
             android:exported="false"
