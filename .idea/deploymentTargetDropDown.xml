@@ -5,6 +5,15 @@
       <entry key="CreateProject">
         <State />
       </entry>
+      <entry key="SignInActivity">
+        <State />
+      </entry>
+      <entry key="SignUpActivity">
+        <State />
+      </entry>
+      <entry key="TimeSheetActivity">
+        <State />
+      </entry>
       <entry key="TimerActivity">
         <State />
       </entry>

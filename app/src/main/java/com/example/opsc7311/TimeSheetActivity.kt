@@ -1,5 +1,6 @@
 package com.example.opsc7311
 
+import Classes.UserClass
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -68,8 +69,9 @@ class TimeSheetActivity : AppCompatActivity(){
         //val userArray = resources.getStringArray(R.array.user_array)
 
         //page functionality
+        val spinnerItems = UserClass.userMutableList
         val uSpinner: Spinner = findViewById(R.id.user_spinner)
-        val adapter = ArrayAdapter.createFromResource(this, R.array.user_array, android.R.layout.simple_spinner_item)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         uSpinner.adapter = adapter
 
