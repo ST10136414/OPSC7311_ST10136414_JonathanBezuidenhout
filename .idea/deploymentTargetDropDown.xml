@@ -5,6 +5,12 @@
       <entry key="DashboardActivity">
         <State />
       </entry>
+      <entry key="SignUpActivity">
+        <State />
+      </entry>
+      <entry key="TimeSheetActivity">
+        <State />
+      </entry>
       <entry key="TimerActivity">
         <State />
       </entry>

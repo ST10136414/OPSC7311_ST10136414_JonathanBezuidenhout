@@ -18,10 +18,10 @@ class UserClass(){
         passWord = pWord
         userEmail = uEmail
     }
-/*
-    fun storeTolist()
-    {
 
+    fun storeTolist(userObj: UserClass)
+    {
+        userMutableList.add(userObj)
     }
-*/
+
 }
