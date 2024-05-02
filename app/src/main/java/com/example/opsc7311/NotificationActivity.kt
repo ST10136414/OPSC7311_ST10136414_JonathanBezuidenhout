@@ -12,9 +12,7 @@ class NotificationActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var textNoNotifications: TextView
     private lateinit var imageNotification: ImageView
-    private val notificationList: List<String> = listOf(
-
-    ) // Add  dummy notification messages here
+    private val notificationList: List<String> = listOf() // Add  dummy notification messages here
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

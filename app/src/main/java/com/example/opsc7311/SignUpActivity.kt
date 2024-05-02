@@ -18,5 +18,10 @@ class SignUpActivity : AppCompatActivity() {
                 val intent1 = Intent(this, MainActivity::class.java)
                 startActivity(intent1)
             }
+                val button2 = findViewById<Button>(R.id.signInBtn)
+                button1.setOnClickListener {
+                    val intent2 = Intent(this, DashboardActivity::class.java)
+                    startActivity(intent2)
+            }
     }
 }

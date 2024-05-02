@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="timeDiversYellow">#FEE800</color>
     <color name="red">#FF0000</color>
+    <color name="grey">#424242</color>
+    <color name="youGrey">#7F7F7F</color>
 </resources>

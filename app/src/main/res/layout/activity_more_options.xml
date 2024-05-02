@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/territoryHeadingTxt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:backgroundTint="@color/black"
+    tools:context=".MoreOptionsActivity">
+
+
+    <TextView
+        android:id="@+id/moreOptionsTxt"
+        android:layout_width="141dp"
+        android:layout_height="44dp"
+        android:fontFamily="@font/anton"
+        android:text="@string/moreOptions"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <ImageButton
+        android:id="@+id/profileBtn"
+        android:layout_width="391dp"
+        android:layout_height="115dp"
+        android:backgroundTint="@color/grey"
+        android:outlineSpotShadowColor="@color/white"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moreOptionsTxt"
+        app:layout_constraintVertical_bias="0.151"
+        app:srcCompat="@drawable/user_icon_yellow" />
+
+    <TextView
+        android:id="@+id/profileTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileBtn"
+        app:layout_constraintEnd_toEndOf="@+id/profileBtn"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="@+id/profileBtn"
+        app:layout_constraintTop_toTopOf="@+id/profileBtn"
+        app:layout_constraintVertical_bias="0.528" />
+
+    <ImageButton
+        android:id="@+id/territoryBtn"
+        android:layout_width="391dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/grey"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileBtn"
+        app:srcCompat="@drawable/yellow_flag_symbol" />
+
+    <TextView
+        android:id="@+id/territoryTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/territory"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/territoryBtn"
+        app:layout_constraintEnd_toEndOf="@+id/territoryBtn"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="@+id/territoryBtn"
+        app:layout_constraintTop_toTopOf="@+id/territoryBtn"
+        app:layout_constraintVertical_bias="0.507" />
+
+    <ImageButton
+        android:id="@+id/manageProjectsBtn"
+        android:layout_width="392dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/grey"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/territoryBtn"
+        app:srcCompat="@drawable/toolbox_symbol_yellow" />
+
+    <TextView
+        android:id="@+id/manageProjectsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/manageProjects"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/manageProjectsBtn"
+        app:layout_constraintEnd_toEndOf="@+id/manageProjectsBtn"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toStartOf="@+id/manageProjectsBtn"
+        app:layout_constraintTop_toTopOf="@+id/manageProjectsBtn"
+        app:layout_constraintVertical_bias="0.485" />
+
+    <Button
+        android:id="@+id/backToDashBtn"
+        android:layout_width="207dp"
+        android:layout_height="85dp"
+        android:text="@string/backToDashboard"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintTop_toBottomOf="@+id/manageProjectsBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
