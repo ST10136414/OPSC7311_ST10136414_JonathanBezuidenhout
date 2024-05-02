@@ -170,6 +170,18 @@
                 app:srcCompat="@drawable/rounded_rectangle1"
                 app:tint="#424242" />
 
+            <TextView
+                android:id="@+id/tvTimeSheetName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="..."
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/timeEntryDisplay"
+                app:layout_constraintHorizontal_bias="0.061"
+                app:layout_constraintStart_toStartOf="@+id/timeEntryDisplay"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
