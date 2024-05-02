@@ -5,7 +5,7 @@
     android:id="@+id/territoryHeadingTxt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#000000"
     tools:context=".Manage_projects">
 
     <ImageView
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rectangle_3"
         app:layout_constraintVertical_bias="0.284"
         app:srcCompat="@drawable/rounded_rectangle1"
-        app:tint="@color/grey" />
+        app:tint="#424242" />
 
     <ImageView
         android:id="@+id/newProjectBtn"
@@ -31,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/plus_symbol"
-        app:tint="@color/timeDiversYellow" />
+        app:tint="#FEE800" />
 
     <View
         android:id="@+id/rectangle_3"
