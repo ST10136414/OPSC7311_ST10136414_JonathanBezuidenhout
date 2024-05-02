@@ -69,6 +69,12 @@ class TimerActivity : AppCompatActivity() {
             val timeSheetIntent = Intent(this, TimeSheetActivity::class.java)
             startActivity(timeSheetIntent)
         }
+        //navigates to More Options page
+        val navMreBtn = findViewById<ImageView>(R.id.navBtnMore)
+        navMreBtn.setOnClickListener {
+            val navMreIntent = Intent(this, MoreOptionsActivity::class.java)
+            startActivity(navMreIntent)
+        }
 
     }
 
