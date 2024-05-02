@@ -7,13 +7,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.text.SimpleDateFormat
 import java.util.*
+import android.os.Handler
+import android.os.Looper
 
 class TimerActivity : AppCompatActivity() {
     private lateinit var currentTimeTextView: TextView
+    private lateinit var timerText: TextView
+    private lateinit var rootView: ConstraintLayout
+    private lateinit var playButton: ImageView
+    private var isPlaying: Boolean = false
+    private var elapsedTime: Long = 0L
+    private val handler = Handler(Looper.getMainLooper())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,6 +35,16 @@ class TimerActivity : AppCompatActivity() {
             insets
         }
         currentTimeTextView = findViewById(R.id.currentTimeTextView)
+        timerText = findViewById(R.id.Timer)
+        rootView = findViewById(R.id.territoryHeadingTxt)
+        playButton = findViewById(R.id.PlayTimer)
+
+        rootView.setBackgroundColor(ContextCompat.getColor(this, android.R.color.black))
+
+        // Set click listener for play button
+        playButton.setOnClickListener {
+            togglePlay()
+        }
 
         // Schedule a task to update the time every second
         currentTimeTextView.postDelayed(updateTimeRunnable, 1000)
@@ -58,10 +79,45 @@ class TimerActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun updateTime() {
         Log.d("TimerActivity", "updateTime() called")
         val sdf = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
         val currentTime = sdf.format(Date())
         currentTimeTextView.text = "Current Time: " + currentTime
+    }
+    private fun togglePlay() {
+        if (isPlaying) {
+            // Stop playing
+            isPlaying = false
+            rootView.setBackgroundColor(ContextCompat.getColor(this, android.R.color.black))
+
+            timerText.setTextColor(ContextCompat.getColor(this, R.color.white))
+            currentTimeTextView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            handler.removeCallbacks(updateTimerRunnable)
+        } else {
+            // Start playing
+            isPlaying = true
+            rootView.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_orange_light))
+            timerText.setTextColor(ContextCompat.getColor(this, R.color.black))
+            currentTimeTextView.setTextColor(ContextCompat.getColor(this, R.color.black))
+            handler.postDelayed(updateTimerRunnable, 10)
+        }
+    }
+    private val updateTimerRunnable: Runnable = object : Runnable {
+        override fun run() {
+            elapsedTime += 10
+            val seconds = elapsedTime / 1000
+            val minutes = seconds / 60
+            val hours = minutes / 60
+            val timeString = String.format("%02d:%02d:%02d.%03d", hours, minutes % 60, seconds % 60, elapsedTime % 1000)
+            timerText.text = timeString
+            handler.postDelayed(this, 10)
+        }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacks(updateTimerRunnable)
     }
 }
