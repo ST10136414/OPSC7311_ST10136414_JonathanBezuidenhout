@@ -252,15 +252,14 @@
         android:id="@+id/btnSignOut"
         android:layout_width="559dp"
         android:layout_height="126dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginBottom="268dp"
         android:backgroundTint="#FFEB3B"
         android:text="SIGN OUT"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.557" />
 </androidx.constraintlayout.widget.ConstraintLayout>
