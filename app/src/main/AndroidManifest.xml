@@ -29,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".NewEntryActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CreateProject"
             android:exported="true"
@@ -47,6 +47,15 @@
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
+        <activity
+            android:name=".MoreOptionsActivity"
+        android:exported="true"/>
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".TerritoryActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
