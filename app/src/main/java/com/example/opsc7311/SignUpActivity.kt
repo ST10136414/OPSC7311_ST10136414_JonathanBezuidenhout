@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class SignUpActivity : AppCompatActivity() {
 
-    //var userObj = UserClass()
+    var userObj = UserClass()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +27,6 @@ class SignUpActivity : AppCompatActivity() {
                 val intent1 = Intent(this, MainActivity::class.java)
                 startActivity(intent1)
             }
-/*                val signUpBtnHere  = findViewById<Button>(R.id.signUpBtn)
-                signUpBtnHere.setOnClickListener {
-                    val intent2 = Intent(this, DashboardActivity::class.java)
-                    startActivity(intent2)
-            }*/
-
 
         //User saving function
             val userNameET = findViewById<EditText>(R.id.FullNameTxtBoxSignUp)
@@ -42,19 +36,15 @@ class SignUpActivity : AppCompatActivity() {
             val signUpBtnHere = findViewById<Button>(R.id.signUpBtn)
             signUpBtnHere.setOnClickListener{
                 //val signupIntent = Intent
-                var userObj = UserClass()
-                userObj.userName = userNameET.text.toString()
-                userObj.userEmail= emailET.text.toString()
-                userObj.passWord= passwordET.text.toString()
+                //var userObj = UserClass()
+                userObj.userName = userNameET.text.toString().trim()
+                userObj.userEmail= emailET.text.toString().trim()
+                userObj.passWord= passwordET.text.toString().trim()
 
                 // No issue?? `,:(
-                userObj.storeTolist(userObj)
-                Toast.makeText(this,"Username: "+userObj.userName+" Email: "+userObj.userEmail, Toast.LENGTH_SHORT).show()
+                UserClass.userMutableList.add(userObj)
+                Toast.makeText(this,"Username: "+UserClass.userMutableList[0].userName+" Email: "+UserClass.userMutableList[0].userEmail, Toast.LENGTH_SHORT).show()
 
             }
-        /*
-
-         */
-
     }
 }

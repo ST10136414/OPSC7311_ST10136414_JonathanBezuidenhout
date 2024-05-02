@@ -5,6 +5,9 @@
       <entry key="DashboardActivity">
         <State />
       </entry>
+      <entry key="SignInActivity">
+        <State />
+      </entry>
       <entry key="SignUpActivity">
         <State />
       </entry>
