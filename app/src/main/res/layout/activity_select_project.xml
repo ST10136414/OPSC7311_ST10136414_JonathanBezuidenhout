@@ -5,31 +5,36 @@
     android:id="@+id/territoryHeadingTxt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@color/black"
     android:clipToOutline="true"
     android:orientation="vertical"
-    android:outlineAmbientShadowColor="#000000"
-    android:outlineSpotShadowColor="#000000"
+    android:outlineAmbientShadowColor="@color/black"
+    android:outlineSpotShadowColor="@color/black"
     tools:context=".SelectProjectActivity">
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="31dp"
         android:layout_height="45dp"
-        app:srcCompat="@drawable/backarrowsymbol"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="19dp" />
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/txtSelectProjectTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrowsymbol" />
 
     <TextView
         android:id="@+id/txtSelectProjectTitle"
         android:layout_width="152dp"
         android:layout_height="48dp"
+        android:layout_marginEnd="160dp"
         android:fontFamily="@font/anton"
         android:text="SELECT PROJECT"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="25sp"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
 
     <View
         android:id="@+id/view"
@@ -37,7 +42,10 @@
         android:layout_height="19dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="#FEE800"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="77dp" />
+        android:layout_marginBottom="632dp"
+        android:background="@color/timeDiversYellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
