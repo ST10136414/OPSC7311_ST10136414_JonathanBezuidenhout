@@ -25,6 +25,9 @@
             android:name=".Manage_projects"
             android:exported="false" />
         <activity
+            android:name=".NewEntryActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateProject"
             android:exported="false" />
         <activity
