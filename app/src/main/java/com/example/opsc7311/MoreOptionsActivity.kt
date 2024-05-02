@@ -27,8 +27,13 @@ class MoreOptionsActivity : AppCompatActivity() {
         }
         val button3 = findViewById<ImageButton>(R.id.territoryBtn)
         button3.setOnClickListener {
-            val intent3 = Intent(this, Manage_projects::class.java)
+            val intent3 = Intent(this, TerritoryActivity::class.java)
             startActivity(intent3)
+        }
+        val button4 = findViewById<Button>(R.id.backToDashBtn)
+        button4.setOnClickListener {
+            val intent4 = Intent(this, DashboardActivity::class.java)
+            startActivity(intent4)
         }
     }
 }

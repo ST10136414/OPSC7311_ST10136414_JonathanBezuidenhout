@@ -5,11 +5,11 @@
     android:id="@+id/territoryHeadingTxt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@color/black"
     android:clipToOutline="true"
     android:orientation="vertical"
-    android:outlineAmbientShadowColor="#000000"
-    android:outlineSpotShadowColor="#000000"
+    android:outlineAmbientShadowColor="@color/black"
+    android:outlineSpotShadowColor="@color/black"
     tools:context=".NewEntryActivity">
 
 
@@ -19,7 +19,7 @@
         android:layout_height="44dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="25dp"
-        android:background="#000000"
+        android:background="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
@@ -35,7 +35,7 @@
         android:layout_marginStart="82dp"
         android:layout_marginTop="40dp"
         android:text="Add Image"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/txtPlan"
         app:layout_constraintTop_toBottomOf="@+id/imgTimer" />
 
@@ -46,7 +46,7 @@
         android:layout_marginStart="74dp"
         android:layout_marginTop="26dp"
         android:text="Start Timer"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/txtAddImage"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -66,7 +66,7 @@
         android:layout_height="49dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="12dp"
-        android:background="#000000"
+        android:background="@color/black"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toStartOf="@+id/txtNewEntry"
@@ -84,7 +84,7 @@
         android:layout_marginBottom="99dp"
         android:fontFamily="@font/anton"
         android:text="NEW ENTRY"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/rectangle_3"
         app:layout_constraintEnd_toStartOf="@+id/imgButtonAddEntry"
@@ -98,7 +98,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="17dp"
-        android:background="#FEE800"
+        android:background="@color/timeDiversYellow"
         app:layout_constraintBottom_toTopOf="@+id/rectangle_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
@@ -113,7 +113,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="11dp"
         android:background="@drawable/spinner_background"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="@color/white"
         android:text="Select Project"
         app:layout_constraintBottom_toTopOf="@+id/rectangle_3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +128,7 @@
         android:layout_height="7dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="#FEE800"
+        android:background="@color/timeDiversYellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
@@ -164,7 +164,7 @@
             android:hint="Note"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -205,7 +205,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:text="Plan"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/imgCalender"
         app:layout_constraintTop_toBottomOf="@+id/imgRightArrow" />
 
@@ -238,7 +238,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="44dp"
         android:text="From and To"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/imgTimer"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -271,7 +271,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="169dp"
         android:layout_marginBottom="216dp"
-        android:background="#FEE800"
+        android:background="@color/timeDiversYellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
