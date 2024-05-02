@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -49,16 +50,13 @@ class TimeSheetActivity : AppCompatActivity(){
             val navMreIntent = Intent(this, MoreOptionsActivity::class.java)
             startActivity(navMreIntent)
         }
-        /* These pages do not exist
+
+        //navigates to report page
         val navReportBtn = findViewById<ImageView>(R.id.navBtnReport)
-        navReportBtn.setOnClickListener{
-            val repIntent = Intent(this,/*ReportActivity does not exist*/ )
-        }*/
-        /*
-        val navMoreBtn = findViewById<ImageView>(R.id.navBtnMore)
-        navMoreBtn.setOnClickListener{
-            val moreIntent = Intent(this,/*the more page does not exist*/ )
-        }*/
+        navReportBtn.setOnClickListener {
+            Toast.makeText(this,"This opens the view report page", Toast.LENGTH_SHORT).show()
+        }
+
 
         val newEntryBtn = findViewById<ImageView>(R.id.newEntryBtn)
         newEntryBtn.setOnClickListener{

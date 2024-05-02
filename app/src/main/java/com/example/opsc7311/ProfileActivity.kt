@@ -1,6 +1,7 @@
 package com.example.opsc7311
 
 import Classes.UserClass
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -19,9 +20,18 @@ class ProfileActivity : AppCompatActivity() {
 
         if (UserClass.userMutableList.isNullOrEmpty())
         {
-            userTxt.text = UserClass.loggedUser.userName.toString()
         }
         else
-        {}
+        {
+            userTxt.text = UserClass.loggedUser.userName.toString()
+        }
+
+        val sgnOutBtn = findViewById<Button>(R.id.btnSignOut)
+        sgnOutBtn.setOnClickListener{
+            var emptyUser = UserClass("","","")
+            val sgnOutIntent = Intent(this, MainActivity::class.java)
+            UserClass.loggedUser = emptyUser
+            startActivity(sgnOutIntent)
+        }
     }
 }

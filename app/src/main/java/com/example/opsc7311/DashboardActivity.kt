@@ -51,5 +51,11 @@ class DashboardActivity : AppCompatActivity() {
             val navMreIntent = Intent(this, MoreOptionsActivity::class.java)
             startActivity(navMreIntent)
         }
+        //navigates to report page
+        val navReportBtn = findViewById<ImageView>(R.id.navBtnReport)
+        navReportBtn.setOnClickListener {
+            Toast.makeText(this,"This opens the view report page", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

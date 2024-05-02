@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 
 class TimerActivity : AppCompatActivity() {
     private lateinit var currentTimeTextView: TextView
@@ -74,6 +75,11 @@ class TimerActivity : AppCompatActivity() {
         navMreBtn.setOnClickListener {
             val navMreIntent = Intent(this, MoreOptionsActivity::class.java)
             startActivity(navMreIntent)
+        }
+        //navigates to report page
+        val navReportBtn = findViewById<ImageView>(R.id.navBtnReport)
+        navReportBtn.setOnClickListener {
+            Toast.makeText(this,"This opens the view report page", Toast.LENGTH_SHORT).show()
         }
 
     }
