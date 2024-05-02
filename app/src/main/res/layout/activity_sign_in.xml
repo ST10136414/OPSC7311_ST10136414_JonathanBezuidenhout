@@ -5,11 +5,11 @@
     android:id="@+id/territoryHeadingTxt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@color/black"
     android:clipToOutline="true"
     android:orientation="vertical"
-    android:outlineAmbientShadowColor="#000000"
-    android:outlineSpotShadowColor="#000000"
+    android:outlineAmbientShadowColor="@color/black"
+    android:outlineSpotShadowColor="@color/black"
     tools:context=".SignInActivity">
 
     <ImageView
@@ -56,7 +56,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="@string/password"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="20sp"
 
         app:layout_constraintBottom_toTopOf="@+id/imageView7"

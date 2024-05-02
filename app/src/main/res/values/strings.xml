@@ -79,6 +79,7 @@
     <string name="TargetHours">Targer Hours: 120 hours</string>
     <string name="oneFreeHalfDay">One free half-day</string>
     <string name="backToMoreOptions">Back To More Options</string>
+    <string name="signOut">SIGN OUT</string>
     <string name="project_det">
 Project Details
 </string>

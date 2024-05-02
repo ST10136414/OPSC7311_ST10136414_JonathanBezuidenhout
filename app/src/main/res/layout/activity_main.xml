@@ -85,7 +85,7 @@
         android:text="@string/forgotYourPassword"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:backgroundTint="#D9D9D9"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.533"
