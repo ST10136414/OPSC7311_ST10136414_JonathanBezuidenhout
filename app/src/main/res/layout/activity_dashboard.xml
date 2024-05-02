@@ -213,7 +213,7 @@
                 app:srcCompat="@drawable/invitememberbtn" />
 
             <ImageView
-                android:id="@+id/imageView21"
+                android:id="@+id/ViewReportBtn"
                 android:layout_width="138dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

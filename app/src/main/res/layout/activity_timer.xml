@@ -128,6 +128,121 @@
         app:layout_constraintVertical_bias="0.079"
         app:srcCompat="@drawable/project_timer" />
 
+    <ImageView
+        android:id="@+id/navBtnDash"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/navBtnTimeSheet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ellipse_1"
+        app:tint="#424242" />
+
+    <ImageView
+        android:id="@+id/navBtnTimeSheet"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/navBtnTimer"
+        app:layout_constraintStart_toEndOf="@+id/navBtnDash"
+        app:srcCompat="@drawable/ellipse_1"
+        app:tint="#424242" />
+
+    <ImageView
+        android:id="@+id/navBtnMore"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/navBtnReport"
+        app:srcCompat="@drawable/ellipse_1"
+        app:tint="#424242" />
+
+    <ImageView
+        android:id="@+id/navBtnReport"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/navBtnMore"
+        app:layout_constraintStart_toEndOf="@+id/navBtnTimer"
+        app:srcCompat="@drawable/ellipse_1"
+        app:tint="#424242" />
+
+    <ImageView
+        android:id="@+id/navBtnTimer"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/navBtnReport"
+        app:layout_constraintStart_toEndOf="@+id/navBtnTimeSheet"
+        app:srcCompat="@drawable/ellipse_1"
+        app:tint="#424242" />
+
+    <ImageView
+        android:id="@+id/dashIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/navBtnDash"
+        app:layout_constraintEnd_toEndOf="@+id/navBtnDash"
+        app:layout_constraintStart_toStartOf="@+id/navBtnDash"
+        app:layout_constraintTop_toTopOf="@+id/navBtnDash"
+        app:srcCompat="@drawable/boxes_symbol_yellow" />
+
+    <ImageView
+        android:id="@+id/timesheetIcon"
+        android:layout_width="31dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toBottomOf="@+id/navBtnTimeSheet"
+        app:layout_constraintEnd_toEndOf="@+id/navBtnTimeSheet"
+        app:layout_constraintStart_toStartOf="@+id/navBtnTimeSheet"
+        app:layout_constraintTop_toTopOf="@+id/navBtnTimeSheet"
+        app:srcCompat="@drawable/timesheet_icon" />
+
+    <ImageView
+        android:id="@+id/timerIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/navBtnTimer"
+        app:layout_constraintEnd_toEndOf="@+id/navBtnTimer"
+        app:layout_constraintStart_toStartOf="@+id/navBtnTimer"
+        app:layout_constraintTop_toTopOf="@+id/navBtnTimer"
+        app:srcCompat="@drawable/clock_symbol_yellow" />
+
+    <ImageView
+        android:id="@+id/reportIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/navBtnReport"
+        app:layout_constraintEnd_toEndOf="@+id/navBtnReport"
+        app:layout_constraintStart_toStartOf="@+id/navBtnReport"
+        app:layout_constraintTop_toTopOf="@+id/navBtnReport"
+        app:srcCompat="@drawable/planner_symbol" />
+
+    <ImageView
+        android:id="@+id/moreIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/navBtnMore"
+        app:layout_constraintEnd_toEndOf="@+id/navBtnMore"
+        app:layout_constraintStart_toStartOf="@+id/navBtnMore"
+        app:layout_constraintTop_toTopOf="@+id/navBtnMore"
+        app:srcCompat="@drawable/ellipsis_symbol_yellow" />
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"

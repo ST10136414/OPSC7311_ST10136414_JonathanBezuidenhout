@@ -19,7 +19,16 @@
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
+            android:name=".DashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TimerActivity"
+            android:exported="true" />
+        <activity
             android:name=".Manage_projects"
+            android:exported="false" />
+        <activity
+            android:name=".NewEntryActivity"
             android:exported="false" />
         <activity
             android:name=".CreateProject"
@@ -31,7 +40,7 @@
             android:theme="@style/Theme.OPSC7311" />
         <activity
             android:name=".TimeSheetActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SignInActivity"
             android:exported="false" />
