@@ -1,9 +1,10 @@
-package com.example.opsc7311
+package Classes
 
 class UserClass(){
     lateinit var userEmail: String
     lateinit var userName: String
     lateinit var passWord: String
+
 
     val userMutableList = mutableListOf<UserClass>()
 
