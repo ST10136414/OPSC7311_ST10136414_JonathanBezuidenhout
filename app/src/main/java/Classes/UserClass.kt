@@ -6,7 +6,11 @@ class UserClass(){
     lateinit var passWord: String
     val projects = mutableListOf<ProjectClass>()
 
-    val userMutableList = mutableListOf<UserClass>()
+    companion object {
+        @JvmStatic
+        val userMutableList = mutableListOf<UserClass>()
+        lateinit var loggedUser: UserClass
+    }
 
     constructor(uEmail: String) : this()
     {
