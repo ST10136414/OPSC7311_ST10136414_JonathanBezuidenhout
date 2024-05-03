@@ -5,6 +5,7 @@ import Classes.UserClass
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
@@ -76,13 +77,39 @@ class TimeSheetActivity : AppCompatActivity(){
         //val userArray = resources.getStringArray(R.array.user_array)
 
         //page functionality
-        val spinnerItems = UserClass.userMutableList
+        //States the uSpinner items as userMutableList, specifically its usernames
+        val spinnerItems = UserClass.userMutableList.map{it.userName}
+
         val uSpinner: Spinner = findViewById(R.id.user_spinner)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         uSpinner.adapter = adapter
 
-        //timesheet dummy entry
+
+        uSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                // Retrieve the selected username
+                val selectedUserName = spinnerItems[position]
+
+                // Find the corresponding UserClass object
+                val selectedUser = UserClass.userMutableList.find { it.userName == selectedUserName }
+
+                // Now you can access the selected user's properties
+                if (selectedUser != null) {
+                    val filteredList = EntryClass.timesheetMutableList.filter { it.user == UserClass.loggedUser.toString() }
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle case when nothing is selected (if needed)
+            }
+        }
+
+
+
+        //val filteredList = EntryClass.timesheetMutableList.filter { it.user == UserClass.loggedUser.toString() }
+
+
+        //timesheet dummy entries
         tmshtEntryObj = EntryClass("Product transport", "Theres a lot of stuff in it", 40,2,3 )
         tmshtEntryObj1 = EntryClass("task2", "Theres a lot of stuff in it", 40,2,3 )
         tmshtEntryObj2=EntryClass("task3", "Theres a lot of stuff in it", 40,2,3 )
@@ -101,11 +128,9 @@ class TimeSheetActivity : AppCompatActivity(){
         else {
             tmsheetText.text=""
             for (i in EntryClass.timesheetMutableList.indices) {
-                //may need to add toString()
+
                 tmsheetText.text = tmsheetText.text.toString() + "[" + EntryClass.timesheetMutableList[i].projectName + " ] \nNotes: " + EntryClass.timesheetMutableList[i].note +
                             "\nTime Logged: " + EntryClass.timesheetMutableList[i].loggedTime + "\nStartTime: " + EntryClass.timesheetMutableList[i].startTime+"\n \n"
-
-
             }
         }
     }
