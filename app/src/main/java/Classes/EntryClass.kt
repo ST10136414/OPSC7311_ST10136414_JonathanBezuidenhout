@@ -12,7 +12,7 @@ class EntryClass()
 
     companion object {
         @JvmStatic
-        val timesheetMutableList = mutableListOf<EntryClass>()
+        val entryMutableList = mutableListOf<EntryClass>()
         //lateinit var loggedUser: UserClass
     }
 
