@@ -96,15 +96,13 @@ class TimeSheetActivity : AppCompatActivity(){
 
                 // Now you can access the selected user's properties
                 if (selectedUser != null) {
-                    val filteredList = EntryClass.entryMutableList.filter { it.user == UserClass.loggedUser.toString() }
+                    val filteredList = EntryClass.entryMutableList.filter { it.projectName == UserClass.loggedUser.toString() }
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Handle case when nothing is selected (if needed)
             }
         }
-
-
 
         //val filteredList = EntryClass.timesheetMutableList.filter { it.user == UserClass.loggedUser.toString() }
 

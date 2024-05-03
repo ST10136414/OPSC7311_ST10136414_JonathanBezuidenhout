@@ -11,4 +11,14 @@ class ProjectClass
     lateinit var endDate: String
     lateinit var budget: String
     lateinit var hourlyRate: String
+
+
+    companion object {
+        @JvmStatic
+        val projectMutableList = mutableListOf<ProjectClass>()
+        //list of timesheets?
+        //lateinit var loggedUser: UserClass
+    }
+
+
 }
