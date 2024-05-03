@@ -2,7 +2,6 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="ProfileActivity">
       <entry key="CreateProject">
         <State />
       </entry>
@@ -10,12 +9,6 @@
         <State />
       </entry>
       <entry key="SelectProjectActivity">
-        <State />
-      </entry>
-      <entry key="SignUpActivity">
-        <State />
-      </entry>
-      <entry key="TimerActivity">
         <State />
       </entry>
       <entry key="app">

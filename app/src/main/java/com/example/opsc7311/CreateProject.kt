@@ -65,10 +65,8 @@ class CreateProject : AppCompatActivity() {
                 updateEndDateEditText()
             }
         }
-
-        btnCreateProject.setOnClickListener()
-        {
-            val newProject = projectClass
+        btnCreateProject.setOnClickListener {
+            val newProject = ProjectClass()
             newProject.projectName = etProjectName.text.toString()
             newProject.clientName = etClientName.text.toString()
             newProject.startDate = etStartDate.text.toString()
@@ -76,23 +74,53 @@ class CreateProject : AppCompatActivity() {
             newProject.budget = etBudget.text.toString()
             newProject.hourlyRate = etHourlyRate.text.toString()
             projectList.add(newProject)
-            val listSize = projectList.size
+
+            // Clear input fields after adding project
             etProjectName.text.clear()
-            //etProjectColour = findViewById<EditText>(R.id.editTxtProj)
             etClientName.text.clear()
             etStartDate.text = ""
             etEndDate.text = ""
             etBudget.text.clear()
             etHourlyRate.text.clear()
-            Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
+
+            // Show toast message indicating the project count
+            val listSize = projectList.size
+            Toast.makeText(this, "Project created. Total projects: $listSize", Toast.LENGTH_SHORT).show()
+
+            // Pass the updated project list to SelectProjectActivity
             val intent = Intent(this, SelectProjectActivity::class.java)
-            val projectNamesList = ArrayList<String>()
-            for (project in projectList) {
-                projectNamesList.add(project.projectName)
-            }
-            intent.putStringArrayListExtra("projectNames", projectNamesList)
+            intent.putParcelableArrayListExtra("projectList", ArrayList(projectList))
             startActivity(intent)
         }
+
+        /*
+                btnCreateProject.setOnClickListener()
+                {
+                    val newProject = projectClass
+                    newProject.projectName = etProjectName.text.toString()
+                    newProject.clientName = etClientName.text.toString()
+                    newProject.startDate = etStartDate.text.toString()
+                    newProject.endDate = etEndDate.text.toString()
+                    newProject.budget = etBudget.text.toString()
+                    newProject.hourlyRate = etHourlyRate.text.toString()
+                    projectList.add(newProject)
+                    val listSize = projectList.size
+                    etProjectName.text.clear()
+                    //etProjectColour = findViewById<EditText>(R.id.editTxtProj)
+                    etClientName.text.clear()
+                    etStartDate.text = ""
+                    etEndDate.text = ""
+                    etBudget.text.clear()
+                    etHourlyRate.text.clear()
+                    Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, SelectProjectActivity::class.java)
+                    val projectNamesList = ArrayList<String>()
+                    for (project in projectList) {
+                        projectNamesList.add(project.projectName)
+                    }
+                    intent.putStringArrayListExtra("projectNames", projectNamesList)
+                    startActivity(intent)
+                }*/
 
         etStartDate.setOnClickListener()
         {
