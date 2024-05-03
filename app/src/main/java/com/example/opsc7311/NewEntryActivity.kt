@@ -60,6 +60,10 @@ class NewEntryActivity : AppCompatActivity()
     private lateinit var btnTakePicture:TextView
     private val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var photoFile: File
+    private fun checkCameraPermission() {
+        TODO("Not yet implemented")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -67,7 +71,7 @@ class NewEntryActivity : AppCompatActivity()
         btnCreateNewEntry = findViewById<ImageButton>(R.id.imgButtonAddEntry)
         txtLoggedTime = findViewById<TextView>(R.id.txtDisplayLoggedTime)
 
-        val spinnerItems = ProjectClass.projectMutableList.map{it.projectName}
+        val spinnerItems = ProjectClass.projectMutableList.map { it.projectName }
 
         spinSelectedProjectName = findViewById<Spinner>(R.id.spinSelectProject)
         btnFrom = findViewById<TextView>(R.id.txtFrom)
@@ -99,7 +103,8 @@ class NewEntryActivity : AppCompatActivity()
         spinSelectedProjectName.adapter = adapter
 
 
-            spinSelectedProjectName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinSelectedProjectName.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
                     view: View?,
@@ -108,12 +113,14 @@ class NewEntryActivity : AppCompatActivity()
                 ) {
 
                     // Get the selected item as a string
-                    val selectedItem = spinnerItems[position]//parent.getItemAtPosition(position).toString()
+                    val selectedItem =
+                        spinnerItems[position]//parent.getItemAtPosition(position).toString()
 
                     //val selectedProject = ProjectClass.projectMutableList.find{}
                     selectedProjectName = selectedItem
                     // Perform actions with the selected item
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     TODO("Not yet implemented")
                 }
@@ -123,21 +130,22 @@ class NewEntryActivity : AppCompatActivity()
             checkCameraPermission()
         }
 
-/*
+
+
         //to convert string Time values into calculable int (minute) values
-        fun convertTime(timeString: String): Int
-        {
-            val parts = timeString.split(" ")
-
-            // Extract hours and minutes
-            val hours = parts[0].toInt()
-            val minutes = parts[3].toInt()
-
-            // Calculate total duration in minutes
-            val totalMinutes = hours * 60 + minutes
-
-            return totalMinutes
-        }*/
+//        fun convertTime(timeString: String): Int
+//        {
+//            val parts = timeString.split(" ")
+//
+//            // Extract hours and minutes
+//            val hours = parts[0].toInt()
+//            val minutes = parts[3].toInt()
+//
+//            // Calculate total duration in minutes
+//            val totalMinutes = hours * 60 + minutes
+//
+//            return totalMinutes
+//        }
 
 
         btnCreateNewEntry.setOnClickListener()
@@ -152,11 +160,10 @@ class NewEntryActivity : AppCompatActivity()
 
             //Find project where projectName =  selectedProjectName
             //val project = ProjectClass()
-            /*
             val project = ProjectClass.projectMutableList.find { it.projectName==selectedProjectName }
             if (project != null) {
                 project.totaltime = (project.totaltime.toInt()+ convertTime(entryObj.loggedTime)).toString()
-            }*/
+            }
 
 
             //stores all previous as entryObj in EntryClass static list
@@ -217,7 +224,6 @@ class NewEntryActivity : AppCompatActivity()
             txtLoggedTime.text = "$timeDifference"
         }
     }
-
 
     private fun checkCameraPermission() {
         if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
