@@ -6,7 +6,6 @@ class UserClass(){
     lateinit var passWord: String
 
 
-
     companion object {
         @JvmStatic
         val userMutableList = mutableListOf<UserClass>()

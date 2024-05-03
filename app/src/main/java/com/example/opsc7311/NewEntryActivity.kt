@@ -3,10 +3,16 @@ import Classes.EntryClass
 import Classes.ProjectClass
 import Classes.StartAndEndTimeClass
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Button
@@ -25,9 +31,15 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.io.File
 import java.security.KeyStore.Entry
+import java.util.Date
 
 class NewEntryActivity : AppCompatActivity()
 {
@@ -43,6 +55,9 @@ class NewEntryActivity : AppCompatActivity()
     private lateinit var btnTo:TextView
     private lateinit var note:TextInputEditText
     private lateinit var btnPlan:TextView
+    private lateinit var btnTakePicture:TextView
+    private val REQUEST_IMAGE_CAPTURE = 1
+    private lateinit var photoFile: File
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,6 +69,7 @@ class NewEntryActivity : AppCompatActivity()
         btnTo = findViewById<TextView>(R.id.txtTo)
         note = findViewById<TextInputEditText>(R.id.txtNote)
         btnPlan = findViewById<TextView>(R.id.txtPlan)
+        btnTakePicture = findViewById<TextView>(R.id.txtAddImage)
         btnFrom.setOnClickListener {
             showTimePicker { calendar ->
                 firstTime = calendar
@@ -63,6 +79,7 @@ class NewEntryActivity : AppCompatActivity()
                 calculateTimeDifference()
             }
         }
+
         btnTo.setOnClickListener {
             showTimePicker { calendar ->
                 secondTime = calendar
@@ -87,6 +104,11 @@ class NewEntryActivity : AppCompatActivity()
                     TODO("Not yet implemented")
                 }
             }
+        btnTakePicture.setOnClickListener()
+        {
+            checkCameraPermission()
+        }
+
         btnCreateNewEntry.setOnClickListener()
         {
             val entryObj = EntryClass()
@@ -151,5 +173,31 @@ class NewEntryActivity : AppCompatActivity()
             Toast.makeText(this, "Time difference: $timeDifference", Toast.LENGTH_SHORT).show()
             txtLoggedTime.text = "$timeDifference"
         }
+    }
+    private fun checkCameraPermission() {
+        if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(android.Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+        } else {
+            openCamera()
+        }
+    }
+    private val cameraActivityResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val imageBitmap = result.data?.extras?.get("data") as Bitmap
+                imageBitmap?.let {
+                    EntryClass.capturedImages.add(it)
+                }
+                    Toast.makeText(this, "Image captured and saved!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Failed to capture image", Toast.LENGTH_SHORT).show()
+            }
+        }
+    private fun openCamera() {
+        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        cameraActivityResultLauncher.launch(cameraIntent)
+    }
+    companion object {
+        private const val CAMERA_PERMISSION_CODE = 101
     }
 }

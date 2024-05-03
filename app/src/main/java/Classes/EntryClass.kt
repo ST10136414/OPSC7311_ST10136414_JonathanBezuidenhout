@@ -1,5 +1,7 @@
 package Classes
 
+import android.graphics.Bitmap
+
 class EntryClass
 {
     lateinit var selectedProjectName:String
@@ -12,6 +14,7 @@ class EntryClass
     companion object {
         @JvmStatic
         val entryMutableList = mutableListOf<EntryClass>()
+         val capturedImages = mutableListOf<Bitmap>()
     }
 
 
