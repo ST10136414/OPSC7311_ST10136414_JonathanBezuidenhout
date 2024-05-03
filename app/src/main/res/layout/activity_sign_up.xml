@@ -5,11 +5,11 @@
     android:id="@+id/territoryHeadingTxt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@color/black"
     android:clipToOutline="true"
     android:orientation="vertical"
-    android:outlineAmbientShadowColor="#000000"
-    android:outlineSpotShadowColor="#000000"
+    android:outlineAmbientShadowColor="@color/black"
+    android:outlineSpotShadowColor="@color/black"
     tools:context=".SignUpActivity">
 
     <ImageView
@@ -173,18 +173,6 @@
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
         app:srcCompat="@drawable/person_symbol_black" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="336dp"
-        android:layout_height="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgotYourPasswordBtn"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/yellow_rectangle" />
 
     <EditText
         android:id="@+id/FullNameTxtBoxSignUp"

@@ -2,19 +2,15 @@ package com.example.opsc7311
 import Classes.EntryClass
 import Classes.ProjectClass
 import Classes.StartAndEndTimeClass
+import Classes.UserClass
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
@@ -31,15 +27,9 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.io.File
 import java.security.KeyStore.Entry
-import java.util.Date
 
 class NewEntryActivity : AppCompatActivity()
 {
@@ -55,21 +45,20 @@ class NewEntryActivity : AppCompatActivity()
     private lateinit var btnTo:TextView
     private lateinit var note:TextInputEditText
     private lateinit var btnPlan:TextView
-    private lateinit var btnTakePicture:TextView
-    private val REQUEST_IMAGE_CAPTURE = 1
-    private lateinit var photoFile: File
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_new_entry)
         btnCreateNewEntry = findViewById<ImageButton>(R.id.imgButtonAddEntry)
         txtLoggedTime = findViewById<TextView>(R.id.txtDisplayLoggedTime)
+
+        val spinnerItems = ProjectClass.projectMutableList.map{it.projectName}
+
         spinSelectedProjectName = findViewById<Spinner>(R.id.spinSelectProject)
         btnFrom = findViewById<TextView>(R.id.txtFrom)
         btnTo = findViewById<TextView>(R.id.txtTo)
         note = findViewById<TextInputEditText>(R.id.txtNote)
         btnPlan = findViewById<TextView>(R.id.txtPlan)
-        btnTakePicture = findViewById<TextView>(R.id.txtAddImage)
         btnFrom.setOnClickListener {
             showTimePicker { calendar ->
                 firstTime = calendar
@@ -79,7 +68,6 @@ class NewEntryActivity : AppCompatActivity()
                 calculateTimeDifference()
             }
         }
-
         btnTo.setOnClickListener {
             showTimePicker { calendar ->
                 secondTime = calendar
@@ -88,6 +76,12 @@ class NewEntryActivity : AppCompatActivity()
                 calculateTimeDifference()
             }
         }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinSelectedProjectName.adapter = adapter
+
+
             spinSelectedProjectName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
@@ -95,8 +89,11 @@ class NewEntryActivity : AppCompatActivity()
                     position: Int,
                     id: Long
                 ) {
+
                     // Get the selected item as a string
-                    val selectedItem = parent.getItemAtPosition(position).toString()
+                    val selectedItem = spinnerItems[position]//parent.getItemAtPosition(position).toString()
+
+                    //val selectedProject = ProjectClass.projectMutableList.find{}
                     selectedProjectName = selectedItem
                     // Perform actions with the selected item
                 }
@@ -104,19 +101,17 @@ class NewEntryActivity : AppCompatActivity()
                     TODO("Not yet implemented")
                 }
             }
-        btnTakePicture.setOnClickListener()
-        {
-            checkCameraPermission()
-        }
-
         btnCreateNewEntry.setOnClickListener()
         {
             val entryObj = EntryClass()
             entryObj.loggedTime = txtLoggedTime.text.toString()
-           // entryObj.selectedProjectName = selectedProjectName
+            entryObj.selectedProjectName = selectedProjectName
             entryObj.startTime = startTime
             entryObj.endTime = endTime
             entryObj.note = note.text.toString()
+            entryObj.user = UserClass.loggedUser.userName.toString()
+
+            //stores all previous as entryObj in EntryClass static list
             EntryClass.entryMutableList.add(entryObj)
             val listSize = EntryClass.entryMutableList.size
             Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
@@ -174,6 +169,7 @@ class NewEntryActivity : AppCompatActivity()
             txtLoggedTime.text = "$timeDifference"
         }
     }
+
     private fun checkCameraPermission() {
         if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(android.Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
@@ -188,7 +184,7 @@ class NewEntryActivity : AppCompatActivity()
                 imageBitmap?.let {
                     EntryClass.capturedImages.add(it)
                 }
-                    Toast.makeText(this, "Image captured and saved!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Image captured and saved!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Failed to capture image", Toast.LENGTH_SHORT).show()
             }
@@ -200,4 +196,8 @@ class NewEntryActivity : AppCompatActivity()
     companion object {
         private const val CAMERA_PERMISSION_CODE = 101
     }
+
+
+
+
 }
