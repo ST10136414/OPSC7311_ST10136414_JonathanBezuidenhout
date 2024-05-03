@@ -5,7 +5,10 @@
       <entry key="CreateProject">
         <State />
       </entry>
-      <entry key="TimerActivity">
+      <entry key="FromAndToTimeActivity">
+        <State />
+      </entry>
+      <entry key="NewEntryActivity">
         <State />
       </entry>
       <entry key="app">

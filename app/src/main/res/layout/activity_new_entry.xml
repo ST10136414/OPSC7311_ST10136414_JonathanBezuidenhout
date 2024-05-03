@@ -196,6 +196,7 @@
             android:layout_marginStart="16dp"
             android:paddingTop="11dp"
             android:text="0m" />
+
     </LinearLayout>
 
     <TextView
@@ -277,6 +278,16 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAddImage" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="370dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
