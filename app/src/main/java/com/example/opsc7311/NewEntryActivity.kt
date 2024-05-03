@@ -27,7 +27,7 @@ import java.security.KeyStore.Entry
 class NewEntryActivity : AppCompatActivity()
 {
 
-    private val newEntryList = mutableListOf<EntryClass>()
+    //private val newEntryList = mutableListOf<EntryClass>()
     private lateinit var btnCreateNewEntry: Button
     private lateinit var txtLoggedTime:TextView
     private lateinit var spinSelectedProjectName:Spinner
@@ -65,28 +65,36 @@ class NewEntryActivity : AppCompatActivity()
 
         btnCreateNewEntry.setOnClickListener()
         {
-            val EntryClass = EntryClass()
-            EntryClass.loggedTime = txtLoggedTime.text.toString()
-           // EntryClass.selectedProjectName =
+            val entryObj = EntryClass()
+            entryObj.loggedTime = txtLoggedTime.text.toString()
+            entryObj.selectedProjectName = selectedProjectName
+            entryObj.startTime = "add ths"// these components do not exist yet
+            entryObj.endTime = "add this" // this is not implemented yet
 
+            EntryClass.entryMutableList.add(entryObj)
         }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.territoryHeadingTxt)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+
     }
+    /*
         fun getStartAndEndTime(startAndEndTimesList: List<String>) {
             for (foundStartAndEndTime in startAndEndTimesList) {
                 val projectNameTextView = TextView(this)
               //  txtLoggedTime.text = startAndEndTimesList
-                projectNameTextView.setTextColor(
-                    ContextCompat.getColor(
+                //projectNameTextView.setTextColor(
+                    //ContextCompat.getColor(
                         this,
                         android.R.color.white
                     )
                 )
                 projectsContainer.addView(projectNameTextView)
             }
-        }
+        }*/
 }

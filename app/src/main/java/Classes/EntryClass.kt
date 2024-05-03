@@ -8,4 +8,15 @@ class EntryClass
     lateinit var startTime: String
     lateinit var endTime: String
     lateinit var plannedTime:String
+
+    companion object {
+        @JvmStatic
+        val entryMutableList = mutableListOf<EntryClass>()
+    }
+
+
+
+
+
+
 }
