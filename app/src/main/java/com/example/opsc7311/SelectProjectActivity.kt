@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import Classes.ProjectClass
 import Classes.UserClass
+import androidx.activity.enableEdgeToEdge
 import androidx.core.content.ContextCompat
 
 class SelectProjectActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class SelectProjectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_select_project)
 
         val projectNames = intent.getStringArrayListExtra("projectNames")
