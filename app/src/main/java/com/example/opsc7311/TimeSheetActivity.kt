@@ -1,5 +1,6 @@
 package com.example.opsc7311
 
+import Classes.EntryClass
 import Classes.UserClass
 import android.content.Intent
 import android.os.Bundle
@@ -9,15 +10,23 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.w3c.dom.Text
+
 //import com.example.opsc7311.databinding.ActivityTimeSheetBinding
+
+
 
 class TimeSheetActivity : AppCompatActivity(){
 
+    var tmshtEntryObj = EntryClass()
+    var tmshtEntryObj1= EntryClass()
+    var tmshtEntryObj2 = EntryClass()
     //private lateinit var calendarButton: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +82,32 @@ class TimeSheetActivity : AppCompatActivity(){
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         uSpinner.adapter = adapter
 
+        //timesheet dummy entry
+        tmshtEntryObj = EntryClass("Product transport", "Theres a lot of stuff in it", 40,2,3 )
+        tmshtEntryObj1 = EntryClass("task2", "Theres a lot of stuff in it", 40,2,3 )
+        tmshtEntryObj2=EntryClass("task3", "Theres a lot of stuff in it", 40,2,3 )
+
+        EntryClass.timesheetMutableList.add(tmshtEntryObj)
+        EntryClass.timesheetMutableList.add(tmshtEntryObj1)
+        EntryClass.timesheetMutableList.add(tmshtEntryObj2)
+
+        //timesheet display functionality
+        val tmsheetText = findViewById<TextView>(R.id.tvTimeSheetName)
+
+        if (EntryClass.timesheetMutableList.isNullOrEmpty())
+        {
+            Toast.makeText(this,"No entries were found in the database", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            tmsheetText.text=""
+            for (i in EntryClass.timesheetMutableList.indices) {
+                //may need to add toString()
+                tmsheetText.text = tmsheetText.text.toString() + "[" + EntryClass.timesheetMutableList[i].projectName + " ] \nNotes: " + EntryClass.timesheetMutableList[i].note +
+                            "\nTime Logged: " + EntryClass.timesheetMutableList[i].loggedTime + "\nStartTime: " + EntryClass.timesheetMutableList[i].startTime+"\n \n"
+
+
+            }
+        }
     }
 }
 
