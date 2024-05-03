@@ -6,10 +6,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import Classes.ProjectClass
 import Classes.UserClass
+import androidx.core.content.ContextCompat
 
 class SelectProjectActivity : AppCompatActivity() {
-    private val userList = mutableListOf<UserClass>() // Assuming you have a list of users
-    private lateinit var territoryHeadingTxt: LinearLayout // Your LinearLayout where you want to add views
+    private val userList = mutableListOf<UserClass>()
+    private lateinit var territoryHeadingTxt: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,8 +18,7 @@ class SelectProjectActivity : AppCompatActivity() {
 
         territoryHeadingTxt = findViewById(R.id.projectsContainer) // Initialize your LinearLayout
 
-        // Populate userList with dummy data (replace with your actual data retrieval logic)
-        // For demonstration purposes, I'll create some dummy users and projects
+        // Populate userList with dummy data (replace with  actual data retrieval logic)
         val user1 = UserClass("Paul")
         val user2 = UserClass("John")
         val project1 = ProjectClass().apply { projectName = "Banking App" }
@@ -39,11 +39,13 @@ class SelectProjectActivity : AppCompatActivity() {
         for (user in users) {
             val userNameTextView = TextView(this)
             userNameTextView.text = user.userName
+            userNameTextView.setTextColor(ContextCompat.getColor(this, android.R.color.white))
             territoryHeadingTxt.addView(userNameTextView)
 
             for (project in user.projects) {
                 val projectNameTextView = TextView(this)
                 projectNameTextView.text = project.projectName
+                userNameTextView.setTextColor(ContextCompat.getColor(this, android.R.color.white))
                 territoryHeadingTxt.addView(projectNameTextView)
             }
         }
