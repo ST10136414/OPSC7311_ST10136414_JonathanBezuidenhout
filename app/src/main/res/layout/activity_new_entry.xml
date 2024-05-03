@@ -13,7 +13,7 @@
     tools:context=".NewEntryActivity">
 
 
-    <ImageButton
+        <ImageButton
         android:id="@+id/imgButtonAddEntry"
         android:layout_width="48dp"
         android:layout_height="44dp"
@@ -137,7 +137,7 @@
         app:layout_constraintVertical_bias="0.201" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/txtInputNote"
         android:layout_width="288dp"
         android:layout_height="52dp"
         android:layout_marginTop="12dp"
@@ -156,6 +156,7 @@
         app:layout_constraintVertical_bias="0.021">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
@@ -178,7 +179,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputNote"
         app:layout_constraintVertical_bias="0.034">
 
         <TextView
@@ -196,6 +197,7 @@
             android:layout_marginStart="16dp"
             android:paddingTop="11dp"
             android:text="0m" />
+
     </LinearLayout>
 
     <TextView
@@ -227,20 +229,25 @@
 
         android:layout_marginEnd="9dp"
         android:scaleX="-1"
-        app:layout_constraintEnd_toStartOf="@+id/txtFromAndTo"
+        app:layout_constraintEnd_toStartOf="@+id/txtFrom"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:srcCompat="@drawable/arrow_symbol" />
 
     <TextView
-        android:id="@+id/txtFromAndTo"
+        android:id="@+id/txtFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="44dp"
-        android:text="From and To"
+        android:layout_marginEnd="83dp"
+        android:text="From"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/txtPlan"
         app:layout_constraintEnd_toStartOf="@+id/imgTimer"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imgLeftArrow"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imgCamera"
@@ -249,7 +256,7 @@
         android:layout_marginTop="39dp"
         android:layout_marginEnd="6dp"
         app:layout_constraintEnd_toStartOf="@+id/txtAddImage"
-        app:layout_constraintTop_toBottomOf="@+id/txtFromAndTo"
+        app:layout_constraintTop_toBottomOf="@+id/txtFrom"
         app:srcCompat="@drawable/ph_camera" />
 
     <ImageView
@@ -277,6 +284,31 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAddImage" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="370dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/txtTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="41dp"
+        android:text="To"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/txtAddImage"
+        app:layout_constraintEnd_toEndOf="@+id/imgTimer"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toEndOf="@+id/txtFrom"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

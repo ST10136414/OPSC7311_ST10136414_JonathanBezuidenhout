@@ -20,7 +20,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.w3c.dom.Text
 
 //import com.example.opsc7311.databinding.ActivityTimeSheetBinding
-
+//i want to test github
 
 
 class TimeSheetActivity : AppCompatActivity(){
@@ -110,13 +110,13 @@ class TimeSheetActivity : AppCompatActivity(){
 
 
         //timesheet dummy entries
-        tmshtEntryObj = EntryClass("Product transport", "Theres a lot of stuff in it", 40,2,3 )
+        /*tmshtEntryObj = EntryClass("Product transport", "Theres a lot of stuff in it", 40,2,3 )
         tmshtEntryObj1 = EntryClass("task2", "Theres a lot of stuff in it", 40,2,3 )
         tmshtEntryObj2=EntryClass("task3", "Theres a lot of stuff in it", 40,2,3 )
 
         EntryClass.entryMutableList.add(tmshtEntryObj)
         EntryClass.entryMutableList.add(tmshtEntryObj1)
-        EntryClass.entryMutableList.add(tmshtEntryObj2)
+        EntryClass.entryMutableList.add(tmshtEntryObj2)*/
 
         //timesheet display functionality
         val tmsheetText = findViewById<TextView>(R.id.tvTimeSheetName)
@@ -129,7 +129,7 @@ class TimeSheetActivity : AppCompatActivity(){
             tmsheetText.text=""
             for (i in EntryClass.entryMutableList.indices) {
 
-                tmsheetText.text = tmsheetText.text.toString() + "[" + EntryClass.entryMutableList[i].projectName + " ] \nNotes: " + EntryClass.entryMutableList[i].note +
+                tmsheetText.text = tmsheetText.text.toString() + "[" + EntryClass.entryMutableList[i].selectedProjectName + " ] \nNotes: " + EntryClass.entryMutableList[i].note +
                             "\nTime Logged: " + EntryClass.entryMutableList[i].loggedTime + "\nStartTime: " + EntryClass.entryMutableList[i].startTime+"\n \n"
             }
         }
