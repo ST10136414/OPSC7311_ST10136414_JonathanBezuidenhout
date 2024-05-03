@@ -34,6 +34,8 @@
             android:name=".CreateProject"
             android:exported="true"
             />
+        <activity android:name=".SelectProjectActivity"
+            android:exported="true"/>
         <activity
             android:name=".CalendarActivity"
             android:exported="false"
@@ -46,7 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MoreOptionsActivity"
         android:exported="true"/>

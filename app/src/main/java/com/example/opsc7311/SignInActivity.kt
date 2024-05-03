@@ -26,7 +26,7 @@ class SignInActivity : AppCompatActivity() {
         }
         val button3 = findViewById<Button>(R.id.signInBtn)
         button1.setOnClickListener {
-            val intent3 = Intent(this, DashboardActivity::class.java)
+            val intent3 = Intent(this, SignInActivity::class.java)
             startActivity(intent3)
         }
     }
