@@ -2,6 +2,7 @@ package com.example.opsc7311
 
 import Classes.ProjectClass
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
@@ -44,6 +45,9 @@ class CreateProject : AppCompatActivity() {
         etHourlyRate = findViewById<EditText>(R.id.editTxtHourlyRate)
         btnCreateProject = findViewById<Button>(R.id.btnCreateProject)
 
+
+
+
         val startDateSetListener = object: DatePickerDialog.OnDateSetListener{
             override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
                 cal.set(Calendar.YEAR,year)
@@ -81,6 +85,13 @@ class CreateProject : AppCompatActivity() {
             etBudget.text.clear()
             etHourlyRate.text.clear()
             Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SelectProjectActivity::class.java)
+            val projectNamesList = ArrayList<String>()
+            for (project in projectList) {
+                projectNamesList.add(project.projectName)
+            }
+            intent.putStringArrayListExtra("projectNames", projectNamesList)
+            startActivity(intent)
         }
 
         etStartDate.setOnClickListener()
