@@ -35,6 +35,9 @@ class Manage_projects : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         pSpinner.adapter = adapter
 
+        //to display
+
+
 /*
         pSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

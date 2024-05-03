@@ -2,6 +2,7 @@ package com.example.opsc7311
 import Classes.EntryClass
 import Classes.ProjectClass
 import Classes.StartAndEndTimeClass
+import Classes.UserClass
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -9,6 +10,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
@@ -49,6 +51,9 @@ class NewEntryActivity : AppCompatActivity()
         setContentView(R.layout.activity_new_entry)
         btnCreateNewEntry = findViewById<ImageButton>(R.id.imgButtonAddEntry)
         txtLoggedTime = findViewById<TextView>(R.id.txtDisplayLoggedTime)
+
+        val spinnerItems = ProjectClass.projectMutableList.map{it.projectName}
+
         spinSelectedProjectName = findViewById<Spinner>(R.id.spinSelectProject)
         btnFrom = findViewById<TextView>(R.id.txtFrom)
         btnTo = findViewById<TextView>(R.id.txtTo)
@@ -71,6 +76,12 @@ class NewEntryActivity : AppCompatActivity()
                 calculateTimeDifference()
             }
         }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinSelectedProjectName.adapter = adapter
+
+
             spinSelectedProjectName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
@@ -78,8 +89,11 @@ class NewEntryActivity : AppCompatActivity()
                     position: Int,
                     id: Long
                 ) {
+
                     // Get the selected item as a string
-                    val selectedItem = parent.getItemAtPosition(position).toString()
+                    val selectedItem = spinnerItems[position]//parent.getItemAtPosition(position).toString()
+
+                    //val selectedProject = ProjectClass.projectMutableList.find{}
                     selectedProjectName = selectedItem
                     // Perform actions with the selected item
                 }
@@ -91,10 +105,13 @@ class NewEntryActivity : AppCompatActivity()
         {
             val entryObj = EntryClass()
             entryObj.loggedTime = txtLoggedTime.text.toString()
-           // entryObj.selectedProjectName = selectedProjectName
+            entryObj.selectedProjectName = selectedProjectName
             entryObj.startTime = startTime
             entryObj.endTime = endTime
             entryObj.note = note.text.toString()
+            entryObj.user = UserClass.loggedUser.userName.toString()
+
+            //stores all previous as entryObj in EntryClass static list
             EntryClass.entryMutableList.add(entryObj)
             val listSize = EntryClass.entryMutableList.size
             Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
@@ -152,4 +169,35 @@ class NewEntryActivity : AppCompatActivity()
             txtLoggedTime.text = "$timeDifference"
         }
     }
+
+    private fun checkCameraPermission() {
+        if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(android.Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+        } else {
+            openCamera()
+        }
+    }
+    private val cameraActivityResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val imageBitmap = result.data?.extras?.get("data") as Bitmap
+                imageBitmap?.let {
+                    EntryClass.capturedImages.add(it)
+                }
+                Toast.makeText(this, "Image captured and saved!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Failed to capture image", Toast.LENGTH_SHORT).show()
+            }
+        }
+    private fun openCamera() {
+        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        cameraActivityResultLauncher.launch(cameraIntent)
+    }
+    companion object {
+        private const val CAMERA_PERMISSION_CODE = 101
+    }
+
+
+
+
 }
