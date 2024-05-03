@@ -14,18 +14,26 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.security.KeyStore.Entry
 
 class Manage_projects : AppCompatActivity() {
-    val filteredList = mutableListOf<EntryClass>()
 
+    lateinit var selectedProject: ProjectClass
+
+    //val filteredList= mutableListOf(EntryClass)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_manage_projects)
 
+        var filteredList = mutableListOf<EntryClass>()
+
+        var thisProject = ProjectClass()
 
 
+
+        val projectObj = ProjectClass()
         //page functionality
         //States the uSpinner items as userMutableList, specifically its usernames
         val spinnerItems = ProjectClass.projectMutableList.map{it.projectName}
@@ -38,40 +46,61 @@ class Manage_projects : AppCompatActivity() {
         //to display
 
 
-/*
         pSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 // Retrieve the selected username
-                val selectedProjectName = spinnerItems[position]
+                val chosenProjectName:String = spinnerItems[position]
 
                 // Find the corresponding UserClass object
-                val selectedProject = ProjectClass.projectMutableList.find { it.projectName == selectedProjectName }
+                val selectedProject = ProjectClass.projectMutableList.find { it.projectName == chosenProjectName}
+                //thisProject = selectedProject
 
                 // Now you can access the selected user's properties
                 if (selectedProject != null) {
-                    filteredList = EntryClass.entryMutableList.filter { it.selectedProjectName == selectedProject.projectName.toString() }
+                    filteredList = EntryClass.entryMutableList.filter { it.selectedProjectName == chosenProjectName }.toMutableList()
                 }
+
+                // val project = ProjectClass.projectMutableList.find { it.projectName==selectedProjectName }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Handle case when nothing is selected (if needed)
             }
         }
 
- */
+
+
+        fun convertMinutesToHoursAndMinutes(totalMinutes: Int): String {
+            val hours = totalMinutes / 60
+            val minutes = totalMinutes % 60
+
+            return "$hours hours $minutes minutes"
+        }
+
+
+
+        val currentTotal = projectObj.totaltime.toInt()
+        val newTotal = convertMinutesToHoursAndMinutes(currentTotal)
+
+        // convert int to hours and minutes
+
 
         //timesheet display functionality
-        val tmsheetText = findViewById<TextView>(R.id.timesheetText)
+        val detailsText = findViewById<TextView>(R.id.projectDetailsText)
 
-        if (EntryClass.entryMutableList.isNullOrEmpty())
+        if (ProjectClass.projectMutableList.isNullOrEmpty())
         {
-            Toast.makeText(this,"No entries were found in the database", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"No projects were found in the database", Toast.LENGTH_SHORT).show()
         }
         else {
-            tmsheetText.text=""
-            for (i in EntryClass.entryMutableList.indices) {
+            detailsText.text=""
+            for (i in ProjectClass.projectMutableList.indices) {
+                detailsText.text = detailsText.text.toString()+"["+thisProject.projectName+"]\n"
+                for (j in filteredList.indices) {
 
-                tmsheetText.text = tmsheetText.text.toString() + "[" + EntryClass.entryMutableList[i].selectedProjectName + " ] \nNotes: " + EntryClass.entryMutableList[i].note +
-                        "\nTime Logged: " + EntryClass.entryMutableList[i].loggedTime + "\nStartTime: " + EntryClass.entryMutableList[i].startTime+"\n \n"
+                    detailsText.text = detailsText.text.toString() +"-Time Entry"+ filteredList[i].selectedProjectName + " ] \nNotes: " + filteredList[i].note +
+                            "\nTime Logged: " + filteredList[i].loggedTime + "\nStartTime: " + filteredList[i].startTime+"\n \n"
+                }
+
             }
         }
 

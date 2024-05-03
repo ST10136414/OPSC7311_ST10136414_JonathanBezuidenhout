@@ -11,7 +11,7 @@ class ProjectClass
     lateinit var endDate: String
     lateinit var budget: String
     lateinit var hourlyRate: String
-    lateinit var totaltime: String
+    var totaltime: String = ""
 
 
     companion object {

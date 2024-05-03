@@ -86,7 +86,7 @@ class CreateProject : AppCompatActivity() {
             etBudget.text.clear()
             etHourlyRate.text.clear()
             Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, SelectProjectActivity::class.java)
+            val intent = Intent(this, DashboardActivity::class.java)
             //
             val projectNamesList = ArrayList<String>()
             for (project in projectList) {

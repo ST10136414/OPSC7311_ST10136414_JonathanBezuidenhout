@@ -154,7 +154,7 @@ class NewEntryActivity : AppCompatActivity()
             //val project = ProjectClass()
             val project = ProjectClass.projectMutableList.find { it.projectName==selectedProjectName }
             if (project != null) {
-                project.totaltime = convertTime(entryObj.loggedTime).toString()
+                project.totaltime = (project.totaltime.toInt()+ convertTime(entryObj.loggedTime)).toString()
             }
 
 

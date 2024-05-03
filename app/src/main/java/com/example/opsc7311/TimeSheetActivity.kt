@@ -25,9 +25,6 @@ import org.w3c.dom.Text
 
 class TimeSheetActivity : AppCompatActivity(){
 
-    var tmshtEntryObj = EntryClass()
-    var tmshtEntryObj1= EntryClass()
-    var tmshtEntryObj2 = EntryClass()
     //private lateinit var calendarButton: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

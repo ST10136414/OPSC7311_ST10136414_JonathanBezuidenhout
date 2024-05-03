@@ -15,7 +15,7 @@ class EntryClass
     companion object {
         @JvmStatic
         val entryMutableList = mutableListOf<EntryClass>()
-         val capturedImages = mutableListOf<Bitmap>()
+        val capturedImages = mutableListOf<Bitmap>()
     }
 
 
