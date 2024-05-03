@@ -107,15 +107,6 @@ class TimeSheetActivity : AppCompatActivity(){
         //val filteredList = EntryClass.timesheetMutableList.filter { it.user == UserClass.loggedUser.toString() }
 
 
-        //timesheet dummy entries
-        /*tmshtEntryObj = EntryClass("Product transport", "Theres a lot of stuff in it", 40,2,3 )
-        tmshtEntryObj1 = EntryClass("task2", "Theres a lot of stuff in it", 40,2,3 )
-        tmshtEntryObj2=EntryClass("task3", "Theres a lot of stuff in it", 40,2,3 )
-
-        EntryClass.entryMutableList.add(tmshtEntryObj)
-        EntryClass.entryMutableList.add(tmshtEntryObj1)
-        EntryClass.entryMutableList.add(tmshtEntryObj2)*/
-
         //timesheet display functionality
         val tmsheetText = findViewById<TextView>(R.id.tvTimeSheetName)
 
