@@ -34,6 +34,10 @@ class Manage_projects : AppCompatActivity() {
 
 
         val projectObj = ProjectClass()
+        projectObj.projectName="OPSC"
+        projectObj.budget="200"
+        projectObj.hourlyRate="10"
+        //projectObj.
         //page functionality
         //States the uSpinner items as userMutableList, specifically its usernames
         val spinnerItems = ProjectClass.projectMutableList.map{it.projectName}

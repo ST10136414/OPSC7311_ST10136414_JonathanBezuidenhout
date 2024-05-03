@@ -123,7 +123,7 @@ class NewEntryActivity : AppCompatActivity()
             checkCameraPermission()
         }
 
-
+/*
         //to convert string Time values into calculable int (minute) values
         fun convertTime(timeString: String): Int
         {
@@ -137,7 +137,7 @@ class NewEntryActivity : AppCompatActivity()
             val totalMinutes = hours * 60 + minutes
 
             return totalMinutes
-        }
+        }*/
 
 
         btnCreateNewEntry.setOnClickListener()
@@ -152,10 +152,11 @@ class NewEntryActivity : AppCompatActivity()
 
             //Find project where projectName =  selectedProjectName
             //val project = ProjectClass()
+            /*
             val project = ProjectClass.projectMutableList.find { it.projectName==selectedProjectName }
             if (project != null) {
                 project.totaltime = (project.totaltime.toInt()+ convertTime(entryObj.loggedTime)).toString()
-            }
+            }*/
 
 
             //stores all previous as entryObj in EntryClass static list
@@ -216,6 +217,7 @@ class NewEntryActivity : AppCompatActivity()
             txtLoggedTime.text = "$timeDifference"
         }
     }
+
 
     private fun checkCameraPermission() {
         if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
