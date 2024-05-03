@@ -40,22 +40,39 @@
         app:layout_constraintVertical_bias="0.4" />
 
     <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="404dp"
-        android:layout_height="519dp"
+        android:id="@+id/projectTimeScrollView"
+        android:layout_width="189dp"
+        android:layout_height="485dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toEndOf="@+id/projectNameScrollView"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        >
+        app:layout_constraintVertical_bias="0.115">
 
         <LinearLayout
-            android:id="@+id/projectsContainer"
+            android:id="@+id/projectsTimeContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            />
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/projectNameScrollView"
+        android:layout_width="189dp"
+        android:layout_height="485dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.009"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.115">
+
+        <LinearLayout
+            android:id="@+id/projectsNameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
     </ScrollView>
 
     <View
@@ -70,4 +87,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.123" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projectNameScrollView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

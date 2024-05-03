@@ -8,16 +8,17 @@ class UserClass(){
 
     val userMutableList = mutableListOf<UserClass>()
 
-    /*constructor(uEmail: String) : this()
+    constructor(uEmail: String) : this()
     {
         userEmail = uEmail
         //userName = uName
-    }*/
+    }
+    /*
     constructor(uName: String) : this()
     {
 
         userName = uName
-    }
+    }*/
     constructor(uName: String, pWord: String, uEmail: String) : this(uEmail)
     {
         userName = uName
