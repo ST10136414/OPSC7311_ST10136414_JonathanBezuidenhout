@@ -10,16 +10,32 @@
 
     <ImageView
         android:id="@+id/timeEntryDisplay"
-        android:layout_width="361dp"
-        android:layout_height="209dp"
+        android:layout_width="342dp"
+        android:layout_height="362dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectangle_3"
         app:layout_constraintVertical_bias="0.284"
-        app:srcCompat="@drawable/rounded_rectangle1"
+        app:srcCompat="@drawable/longdarkrectangle"
         app:tint="#424242" />
+
+    <ScrollView
+        android:layout_width="281dp"
+        android:layout_height="298dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timeEntryDisplay"
+        app:layout_constraintEnd_toEndOf="@+id/timeEntryDisplay"
+        app:layout_constraintStart_toStartOf="@+id/timeEntryDisplay"
+        app:layout_constraintTop_toTopOf="@+id/timeEntryDisplay">
+
+        <TextView
+            android:id="@+id/timesheetText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="..." />
+    </ScrollView>
 
     <ImageView
         android:id="@+id/newProjectBtn"
@@ -83,7 +99,7 @@
         app:layout_constraintVertical_bias="0.508" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/projectSpinner"
         android:layout_width="363dp"
         android:layout_height="24dp"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle_3"
