@@ -40,7 +40,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.039"
-        app:layout_constraintStart_toEndOf="@+id/imgUserProfileCircle"
         app:layout_constraintTop_toBottomOf="@+id/rectangle_3"
         app:layout_constraintVertical_bias="0.002" />
 
@@ -74,25 +73,15 @@
         app:srcCompat="@drawable/yellow_pencil_symbol_3" />
 
     <ImageView
-        android:id="@+id/imgUserProfileCircle"
+        android:id="@+id/btnProfileImage"
         android:layout_width="119dp"
         android:layout_height="111dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectangle_3"
         app:srcCompat="@drawable/ellipse_14" />
-
-    <ImageView
-        android:id="@+id/imgUserIcon"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgUserProfileCircle"
-        app:layout_constraintEnd_toEndOf="@+id/imgUserProfileCircle"
-        app:layout_constraintStart_toStartOf="@+id/imgUserProfileCircle"
-        app:layout_constraintTop_toTopOf="@+id/imgUserProfileCircle"
-        app:srcCompat="@drawable/profile_symbol" />
 
     <View
         android:id="@+id/view"
