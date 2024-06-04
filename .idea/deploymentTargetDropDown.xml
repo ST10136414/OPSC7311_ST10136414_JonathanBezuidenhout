@@ -2,10 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="DashboardActivity">
-        <State />
-      </entry>
-      <entry key="Manage_projects">
+      <entry key="GoalsActivity">
         <State />
       </entry>
       <entry key="TimeSheetActivity">

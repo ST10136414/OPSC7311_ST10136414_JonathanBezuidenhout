@@ -202,7 +202,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTxtProjectName"
+        android:id="@+id/editTxtMinGoal"
         android:layout_width="173dp"
         android:layout_height="27dp"
         android:layout_marginTop="84dp"

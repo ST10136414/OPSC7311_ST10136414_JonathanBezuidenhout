@@ -69,14 +69,14 @@
         android:background="@color/black"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/txtNewEntry"
+        app:layout_constraintEnd_toStartOf="@+id/txtTotalHours"
         app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backarrowsymbol" />
 
     <TextView
-        android:id="@+id/txtNewEntry"
+        android:id="@+id/txtTotalHours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -103,8 +103,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNewEntry"
+        app:layout_constraintTop_toBottomOf="@+id/txtTotalHours"
         app:layout_constraintVertical_bias="0.0" />
+
 
     <Spinner
         android:id="@+id/spinSelectProject"
@@ -310,5 +311,19 @@
         app:layout_constraintStart_toEndOf="@+id/txtFrom"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="408dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="117dp"
+        android:background="@color/timeDiversYellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
