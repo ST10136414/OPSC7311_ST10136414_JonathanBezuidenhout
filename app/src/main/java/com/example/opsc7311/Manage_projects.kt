@@ -31,8 +31,6 @@ class Manage_projects : AppCompatActivity() {
 
         var thisProject = ProjectClass()
 
-
-
         val projectObj = ProjectClass()
         projectObj.projectName="OPSC"
         projectObj.budget="200"
@@ -48,7 +46,6 @@ class Manage_projects : AppCompatActivity() {
         pSpinner.adapter = adapter
 
         //to display
-
 
         pSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
