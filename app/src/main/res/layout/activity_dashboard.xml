@@ -246,88 +246,214 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
-        app:layout_constraintVertical_bias="0.52"
+        app:layout_constraintVertical_bias="0.077"
         app:srcCompat="@drawable/component_1" />
 
-    <ImageView
-        android:id="@+id/todayTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+    <ScrollView
+        android:layout_width="410dp"
+        android:layout_height="126dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/rectangle_4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/options_ScrollVIew"
-        app:srcCompat="@drawable/greyrectanglesmall" />
+        app:layout_constraintTop_toBottomOf="@+id/workCountImg"
+        app:layout_constraintVertical_bias="1.0">
 
-    <ImageView
-        android:id="@+id/weekTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/options_ScrollVIew"
-        app:srcCompat="@drawable/greyrectanglesmall" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView51"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter"
-        android:text="28:08"
-        android:textColor="#FFFFFF"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@+id/todayTime"
-        app:layout_constraintEnd_toEndOf="@+id/todayTime"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="@+id/todayTime"
-        app:layout_constraintTop_toTopOf="@+id/todayTime"
-        app:layout_constraintVertical_bias="0.76" />
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Todays Goal:"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/GoalToday"
+                app:layout_constraintEnd_toEndOf="@+id/GoalToday"
+                app:layout_constraintHorizontal_bias="0.224"
+                app:layout_constraintStart_toStartOf="@+id/GoalToday"
+                app:layout_constraintTop_toTopOf="@+id/GoalToday"
+                app:layout_constraintVertical_bias="0.133" />
 
-    <TextView
-        android:id="@+id/textView52"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Today"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/todayTime"
-        app:layout_constraintEnd_toEndOf="@+id/todayTime"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="@+id/todayTime"
-        app:layout_constraintTop_toTopOf="@+id/todayTime"
-        app:layout_constraintVertical_bias="0.166" />
+            <ImageView
+                android:id="@+id/todayTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView17"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/options_ScrollVIew"
+                app:srcCompat="@drawable/greyrectanglesmall" />
 
-    <TextView
-        android:id="@+id/textView53"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter"
-        android:text="28:08"
-        android:textColor="#FFFFFF"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@+id/weekTime"
-        app:layout_constraintEnd_toEndOf="@+id/weekTime"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="@+id/weekTime"
-        app:layout_constraintTop_toTopOf="@+id/weekTime"
-        app:layout_constraintVertical_bias="0.72" />
+            <ImageView
+                android:id="@+id/weekTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="276dp"
+                android:layout_marginBottom="44dp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/options_ScrollVIew"
+                app:srcCompat="@drawable/greyrectanglesmall" />
 
-    <TextView
-        android:id="@+id/textView54"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Week"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/weekTime"
-        app:layout_constraintEnd_toEndOf="@+id/weekTime"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toStartOf="@+id/weekTime"
-        app:layout_constraintTop_toTopOf="@+id/weekTime"
-        app:layout_constraintVertical_bias="0.133" />
+            <TextView
+                android:id="@+id/TodayLoggedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="28:08"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/todayTime"
+                app:layout_constraintEnd_toEndOf="@+id/todayTime"
+                app:layout_constraintHorizontal_bias="0.154"
+                app:layout_constraintStart_toStartOf="@+id/todayTime"
+                app:layout_constraintTop_toTopOf="@+id/todayTime"
+                app:layout_constraintVertical_bias="0.76" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/todayTime"
+                app:layout_constraintEnd_toEndOf="@+id/todayTime"
+                app:layout_constraintHorizontal_bias="0.139"
+                app:layout_constraintStart_toStartOf="@+id/todayTime"
+                app:layout_constraintTop_toTopOf="@+id/todayTime"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <TextView
+                android:id="@+id/WeekLoggedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="28:08"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/weekTime"
+                app:layout_constraintEnd_toEndOf="@+id/weekTime"
+                app:layout_constraintHorizontal_bias="0.154"
+                app:layout_constraintStart_toStartOf="@+id/weekTime"
+                app:layout_constraintTop_toTopOf="@+id/weekTime"
+                app:layout_constraintVertical_bias="0.72" />
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Week"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/weekTime"
+                app:layout_constraintEnd_toEndOf="@+id/weekTime"
+                app:layout_constraintHorizontal_bias="0.134"
+                app:layout_constraintStart_toStartOf="@+id/weekTime"
+                app:layout_constraintTop_toTopOf="@+id/weekTime"
+                app:layout_constraintVertical_bias="0.133" />
+
+            <ImageView
+                android:id="@+id/GoalToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/greyrectanglesmall" />
+
+            <TextView
+                android:id="@+id/GoalTimeToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/GoalToday"
+                app:layout_constraintEnd_toEndOf="@+id/GoalToday"
+                app:layout_constraintHorizontal_bias="0.114"
+                app:layout_constraintStart_toStartOf="@+id/GoalToday"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <TextView
+                android:id="@+id/GoalTodayLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's Goal:"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toTopOf="@+id/GoalTimeToday"
+                app:layout_constraintEnd_toEndOf="@+id/GoalToday"
+                app:layout_constraintHorizontal_bias="0.229"
+                app:layout_constraintStart_toStartOf="@+id/GoalToday"
+                app:layout_constraintTop_toTopOf="@+id/GoalToday" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="Goals"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/GoalToday"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/greyrectanglesmall" />
+
+            <TextView
+                android:id="@+id/GoalTimeWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView30"
+                app:layout_constraintEnd_toEndOf="@+id/imageView30"
+                app:layout_constraintHorizontal_bias="0.114"
+                app:layout_constraintStart_toStartOf="@+id/imageView30"
+                app:layout_constraintTop_toBottomOf="@+id/GoalWeekLbl" />
+
+            <TextView
+                android:id="@+id/GoalWeekLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="Week's Goal:"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView30"
+                app:layout_constraintEnd_toEndOf="@+id/imageView30"
+                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintStart_toStartOf="@+id/imageView30"
+                app:layout_constraintTop_toTopOf="@+id/imageView30"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="294dp"
+                tools:layout_editor_absoluteY="18dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
