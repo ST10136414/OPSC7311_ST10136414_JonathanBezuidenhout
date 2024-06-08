@@ -55,7 +55,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/longdarkrectangle"
-        app:tint="#424242" />
+        app:tint="#424242"
+        />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
 
     <View
         android:id="@+id/view2"
