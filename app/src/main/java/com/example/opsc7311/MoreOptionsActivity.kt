@@ -22,7 +22,8 @@ class MoreOptionsActivity : AppCompatActivity() {
         }
         val button2 = findViewById<ImageButton>(R.id.manageProjectsBtn)
         button2.setOnClickListener {
-            val intent2 = Intent(this, Manage_projects::class.java)
+//            val intent2 = Intent(this, Manage_projects::class.java)
+            val intent2 = Intent(this, GoalsActivity::class.java)
             startActivity(intent2)
         }
         val button3 = findViewById<ImageButton>(R.id.territoryBtn)

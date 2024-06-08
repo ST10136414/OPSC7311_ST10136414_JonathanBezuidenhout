@@ -1,8 +1,10 @@
 package com.example.opsc7311
 
+import Classes.EntryClass
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,28 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard)
+
+
+
+
+        //val validCustomObjects = customObjects.filter { it.propertyB.toIntOrNull() != null }
+        val validList = EntryClass.entryMutableList.filter{it.loggedTime.toIntOrNull() !=null}
+
+        if (validList.isNotEmpty())
+        {
+            val sumTotalLogged = validList.sumOf { it.loggedTime.toInt() }
+
+            val TodayLoggedTime: TextView = findViewById<TextView>(R.id.TodayLoggedTime)
+            TodayLoggedTime.text = "$sumTotalLogged"
+        }
+
+        else
+        {
+            val TodayLoggedTime: TextView = findViewById<TextView>(R.id.TodayLoggedTime)
+            TodayLoggedTime.text = "Nand"
+        }
+
+
 
         val createProjBtn = findViewById<ImageView>(R.id.createProjectBtn)
         createProjBtn.setOnClickListener {

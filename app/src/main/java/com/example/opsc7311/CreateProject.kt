@@ -13,7 +13,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -37,7 +36,7 @@ class CreateProject : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_project)
-        etProjectName = findViewById<EditText>(R.id.editTxtProjectName)
+        etProjectName = findViewById<EditText>(R.id.editTxtMinGoal)
         //etProjectColour = findViewById<EditText>(R.id.editTxtProj)
         etClientName = findViewById<EditText>(R.id.editTxtClientName)
         etStartDate = findViewById<TextView>(R.id.txtStartDate)

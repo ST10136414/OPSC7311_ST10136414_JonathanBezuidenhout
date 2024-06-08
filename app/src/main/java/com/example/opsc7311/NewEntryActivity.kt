@@ -137,7 +137,7 @@ class NewEntryActivity : AppCompatActivity()
             val totalMinutes = hours * 60 + minutes
 
             return totalMinutes
-        }*////
+        }*/
 
 
         btnCreateNewEntry.setOnClickListener()
