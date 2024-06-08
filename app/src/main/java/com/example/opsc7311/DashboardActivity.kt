@@ -20,7 +20,6 @@ class DashboardActivity : AppCompatActivity() {
 
 
 
-
         //val validCustomObjects = customObjects.filter { it.propertyB.toIntOrNull() != null }
         val validList = EntryClass.entryMutableList.filter{it.loggedTime.toIntOrNull() !=null}
 
