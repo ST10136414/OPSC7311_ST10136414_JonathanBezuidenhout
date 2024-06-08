@@ -19,6 +19,7 @@ dependencyResolutionManagement {
         maven("https://jitpack.io")
     }
 
+
 }
 
 rootProject.name = "OPSC7311"
