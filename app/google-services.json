@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "196076908843",
+    "firebase_url": "https://timedivers-opsc7311-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "timedivers-opsc7311",
+    "storage_bucket": "timedivers-opsc7311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196076908843:android:d0cb2cd9abdf1bfeb7956e",
+        "android_client_info": {
+          "package_name": "com.example.opsc7311"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYcD1YwTWilp9GnJb-QoS370DTUfcXcVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
