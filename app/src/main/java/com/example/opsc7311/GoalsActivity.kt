@@ -2,6 +2,7 @@ package com.example.opsc7311
 
 import Classes.GoalClass
 import Classes.ProjectClass
+import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.media.Image
 import android.os.Bundle
@@ -20,6 +21,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.w3c.dom.Text
 import java.util.Calendar
 import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class GoalsActivity : AppCompatActivity() {
@@ -33,6 +35,9 @@ class GoalsActivity : AppCompatActivity() {
     private lateinit var TodayDateStr: String
     private lateinit var WeekStartStr:String
     private lateinit var WeekEndStr: String
+
+    private var cal = Calendar.getInstance()
+
 
     private var TodayTime: Calendar? = null
 
@@ -64,15 +69,7 @@ class GoalsActivity : AppCompatActivity() {
         btnWeekEnd = findViewById<ImageView>(R.id.WeekDatePicker2)
 
 
-
-
-
-
-
-
-
-
-
+/*
         btnTodayDate.setOnClickListener {
             showTimePicker { calendar ->
                 TodayTime = calendar
@@ -99,9 +96,65 @@ class GoalsActivity : AppCompatActivity() {
         }
 
 
+*/
+
+
+        val todayDateSetListener = object: DatePickerDialog.OnDateSetListener{
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                cal.set(Calendar.YEAR,year)
+                cal.set(Calendar.MONTH,month)
+                cal.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+                updateTodayDateStr()
+            }
+        }
 
 
 
+        val weekStartDateSetListener = object: DatePickerDialog.OnDateSetListener{
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                cal.set(Calendar.YEAR,year)
+                cal.set(Calendar.MONTH,month)
+                cal.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+                updateWeekStartStr()
+            }
+        }
+
+        val weekEndDateSetListener = object: DatePickerDialog.OnDateSetListener{
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                cal.set(Calendar.YEAR,year)
+                cal.set(Calendar.MONTH,month)
+                cal.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+                updateWeekEndStr()
+            }
+        }
+
+
+        //Date Button Actions
+        btnTodayDate.setOnClickListener()
+        {
+            DatePickerDialog(this@GoalsActivity,weekStartDateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
+
+
+        btnWeekStart.setOnClickListener()
+        {
+            DatePickerDialog(this@GoalsActivity,weekStartDateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
+        btnWeekEnd.setOnClickListener()
+        {
+            DatePickerDialog(this@GoalsActivity,weekEndDateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
 
 
 
@@ -129,18 +182,6 @@ class GoalsActivity : AppCompatActivity() {
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -149,6 +190,28 @@ class GoalsActivity : AppCompatActivity() {
     }
 
 
+    private fun updateTodayDateStr()
+    {
+        val myFormat = "MM/dd/yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        TodayDateStr = sdf.format(this.cal.time)
+    }
+
+    private fun updateWeekStartStr()
+    {
+        val myFormat = "MM/dd/yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        WeekStartStr = sdf.format(this.cal.time)
+    }
+
+    private fun updateWeekEndStr()
+    {
+        val myFormat = "MM/dd/yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        WeekEndStr = sdf.format(this.cal.time)
+    }
+
+/*
     private fun showTimePicker(onTimeSelected: (Calendar) -> Unit) {
         // Get the current time
         val calendar = Calendar.getInstance()
@@ -179,5 +242,5 @@ class GoalsActivity : AppCompatActivity() {
         val minute = calendar.get(Calendar.MINUTE)
         return String.format("%02d:%02d", hour, minute)
     }
-
+*/
 }

@@ -35,7 +35,7 @@ class DashboardActivity : AppCompatActivity() {
         else
         {
             val TodayLoggedTime: TextView = findViewById<TextView>(R.id.TodayLoggedTime)
-            TodayLoggedTime.text = "Nand"
+            TodayLoggedTime.text = "..."
         }
 
 
