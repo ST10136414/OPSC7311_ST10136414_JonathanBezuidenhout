@@ -299,7 +299,7 @@
         app:layout_constraintStart_toEndOf="@+id/project_color" />
 
     <Button
-        android:id="@+id/btnCreateProject"
+        android:id="@+id/btnDisplayTotalHours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

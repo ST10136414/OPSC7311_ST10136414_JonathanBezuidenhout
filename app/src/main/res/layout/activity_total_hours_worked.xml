@@ -133,7 +133,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <Button
-        android:id="@+id/btnCreateProject"
+        android:id="@+id/btnDisplayTotalHours"
         android:layout_width="154dp"
         android:layout_height="39dp"
         android:layout_marginTop="30dp"

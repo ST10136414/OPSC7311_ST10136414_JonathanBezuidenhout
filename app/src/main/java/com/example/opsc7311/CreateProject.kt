@@ -43,7 +43,7 @@ class CreateProject : AppCompatActivity() {
         etEndDate = findViewById<TextView>(R.id.txtEndDate)
         etBudget = findViewById<EditText>(R.id.editTxtBudget)
         etHourlyRate = findViewById<EditText>(R.id.editTxtHourlyRate)
-        btnCreateProject = findViewById<Button>(R.id.btnCreateProject)
+        btnCreateProject = findViewById<Button>(R.id.btnDisplayTotalHours)
 
 
 

@@ -89,7 +89,10 @@ class TotalHoursWorkedActivity : AppCompatActivity() {
                 cal.get(Calendar.DAY_OF_MONTH)).show()
         }
 
-        //btnDisplayHours.setOnClickListener()
+        btnDisplayHours.setOnClickListener()
+        {
+
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
