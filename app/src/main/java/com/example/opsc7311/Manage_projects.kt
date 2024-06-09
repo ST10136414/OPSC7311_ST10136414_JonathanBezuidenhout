@@ -2,7 +2,6 @@ package com.example.opsc7311
 
 import Classes.EntryClass
 import Classes.ProjectClass
-import Classes.UserClass
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -12,9 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import java.security.KeyStore.Entry
 
 class Manage_projects : AppCompatActivity() {
 
@@ -82,8 +78,8 @@ class Manage_projects : AppCompatActivity() {
 
 
 
-        val currentTotal = projectObj.totaltime.toInt()
-        val newTotal = convertMinutesToHoursAndMinutes(currentTotal)
+       // val currentTotal = projectObj.totaltime.toInt()
+        //val newTotal = convertMinutesToHoursAndMinutes(currentTotal)
 
         // convert int to hours and minutes
 
