@@ -8,7 +8,6 @@ android {
     namespace = "com.example.opsc7311"
     compileSdk = 34
     viewBinding.enable = true
-    viewBinding.enable = true
 
     defaultConfig {
         applicationId = "com.example.opsc7311"
@@ -42,7 +41,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -51,15 +49,15 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.recyclerview)
-    //implementation(libs.firebase.database)
+    implementation(libs.mpAndroidChart)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.mpAndroidChart)
-    implementation(libs.firebase.database)
-    //added
+
+    // Use the Firebase BOM to manage versions
     implementation(platform("com.google.firebase:firebase-bom:31.0.1"))
-    implementation("com.google.firebase:firebase-database-ktx:20.1.0")
+    implementation("com.google.firebase:firebase-database-ktx")
+    // Add other Firebase dependencies here, all managed by the BOM
 }
-//added
+
 apply(plugin = "com.google.gms.google-services")
