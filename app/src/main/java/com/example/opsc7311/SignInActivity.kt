@@ -107,6 +107,7 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 }*/
+/*
 package com.example.opsc7311
 
 import Classes.UserClass
@@ -153,7 +154,7 @@ class SignInActivity : AppCompatActivity() {
 
         val signInBtnAgain = findViewById<Button>(R.id.signInBtn)
         signInBtnAgain.setOnClickListener {
-            val emailtext = emailET.text.toString().replace(".", "_") // Replace '.' with '_'
+            val emailtext = emailET.text.toString()//.replace(".", "_") // Replace '.' with '_'
             val pass = passET.text.toString()
 
             if (emailtext.isNotEmpty() && pass.isNotEmpty()) {
@@ -177,6 +178,103 @@ class SignInActivity : AppCompatActivity() {
                         val signInIntent = Intent(this@SignInActivity, DashboardActivity::class.java)
                         startActivity(signInIntent)
                     } else {
+                        Toast.makeText(this@SignInActivity, "Password was not found, please try again", Toast.LENGTH_SHORT).show()
+                        clearFields()
+                    }
+                } else {
+                    Toast.makeText(this@SignInActivity, "Email was not found, please try again", Toast.LENGTH_SHORT).show()
+                    clearFields()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@SignInActivity, "Error: ${databaseError.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun clearFields() {
+        findViewById<EditText>(R.id.emailTxtBoxSignIn).text.clear()
+        findViewById<EditText>(R.id.passwordTxtBoxSignIn).text.clear()
+    }
+}
+*/
+package com.example.opsc7311
+
+import Classes.UserClass
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.database.*
+
+class SignInActivity : AppCompatActivity() {
+
+    private lateinit var database: FirebaseDatabase
+    private lateinit var usersRef: DatabaseReference
+    var userObj = UserClass()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_sign_in)
+
+        // Initialize Firebase
+        database = FirebaseDatabase.getInstance()
+        usersRef = database.getReference("users")
+
+        val previousPageBtnAgain = findViewById<Button>(R.id.previousPageBtn)
+        previousPageBtnAgain.setOnClickListener {
+            val previousPageIntent = Intent(this, MainActivity::class.java)
+            startActivity(previousPageIntent)
+        }
+
+        val forgotPassBtn = findViewById<Button>(R.id.forgotYourPasswordBtn)
+        forgotPassBtn.setOnClickListener {
+            val forgotPassIntent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(forgotPassIntent)
+        }
+
+        val emailET = findViewById<EditText>(R.id.emailTxtBoxSignIn)
+        val passET = findViewById<EditText>(R.id.passwordTxtBoxSignIn)
+
+        val signInBtnAgain = findViewById<Button>(R.id.signInBtn)
+        signInBtnAgain.setOnClickListener {
+            val emailtext = emailET.text.toString().trim()//.replace(".", "_") // Replace '.' with '_'
+            val pass = passET.text.toString().trim()
+
+            if (emailtext.isNotEmpty() && pass.isNotEmpty()) {
+                signInUser(emailtext, pass)
+            } else {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun signInUser(email: String, password: String) {
+        val query = usersRef.orderByChild("userEmail").equalTo(email)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    var userFound = false
+                    for (userSnapshot in dataSnapshot.children) {
+                        val user = userSnapshot.getValue(UserClass::class.java)
+                        if (user != null && user.passWord == password) {
+                            userFound = true
+                            Toast.makeText(this@SignInActivity, "Email and Password Found! Redirecting...", Toast.LENGTH_SHORT).show()
+                            UserClass.loggedUser = user
+                            val signInIntent = Intent(this@SignInActivity, DashboardActivity::class.java)
+                            startActivity(signInIntent)
+                            break
+                        }
+                    }
+                    if (!userFound) {
                         Toast.makeText(this@SignInActivity, "Password was not found, please try again", Toast.LENGTH_SHORT).show()
                         clearFields()
                     }
