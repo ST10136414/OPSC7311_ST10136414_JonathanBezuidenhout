@@ -43,6 +43,10 @@ import java.io.File
 import java.security.KeyStore.Entry
 import java.util.Date
 
+import androidx.activity.enableEdgeToEdge
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
 class NewEntryActivity : AppCompatActivity()
 {
     private lateinit var btnCreateNewEntry: ImageButton
@@ -60,14 +64,24 @@ class NewEntryActivity : AppCompatActivity()
     private lateinit var btnTakePicture:TextView
     private val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var photoFile: File
+
+    private lateinit var database: FirebaseDatabase
+    private lateinit var usersRef: DatabaseReference
+    private lateinit var entriesRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_new_entry)
+
+        // Initialize Firebase
+        database = FirebaseDatabase.getInstance()
+        usersRef = database.getReference("users")
+
         btnCreateNewEntry = findViewById<ImageButton>(R.id.imgButtonAddEntry)
         txtLoggedTime = findViewById<TextView>(R.id.txtDisplayLoggedTime)
 
-        val spinnerItems = ProjectClass.projectMutableList.map{it.projectName}
+        val spinnerItems = ProjectClass.projectMutableList.map { it.projectName }
 
         spinSelectedProjectName = findViewById<Spinner>(R.id.spinSelectProject)
         btnFrom = findViewById<TextView>(R.id.txtFrom)
@@ -99,21 +113,23 @@ class NewEntryActivity : AppCompatActivity()
         spinSelectedProjectName.adapter = adapter
 
 
-            spinSelectedProjectName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
+        spinSelectedProjectName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
 
                     // Get the selected item as a string
-                    val selectedItem = spinnerItems[position]//parent.getItemAtPosition(position).toString()
+                    val selectedItem =
+                        spinnerItems[position]//parent.getItemAtPosition(position).toString()
 
                     //val selectedProject = ProjectClass.projectMutableList.find{}
                     selectedProjectName = selectedItem
                     // Perform actions with the selected item
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     TODO("Not yet implemented")
                 }
@@ -133,12 +149,22 @@ class NewEntryActivity : AppCompatActivity()
             entryObj.note = note.text.toString()
             entryObj.user = UserClass.loggedUser.userName.toString()
 
+            //Find project where projectName =  selectedProjectName
+            //val project = ProjectClass()
+            /*
+            val project = ProjectClass.projectMutableList.find { it.projectName==selectedProjectName }
+            if (project != null) {
+                project.totaltime = (project.totaltime.toInt()+ convertTime(entryObj.loggedTime)).toString()
+            }*/
+
+
             //stores all previous as entryObj in EntryClass static list
             EntryClass.entryMutableList.add(entryObj)
             val listSize = EntryClass.entryMutableList.size
             Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
             val navMreIntent = Intent(this, NewEntryActivity::class.java)
             startActivity(navMreIntent)
+            uploadEntryToFirebase()
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.territoryHeadingTxt)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -218,6 +244,30 @@ class NewEntryActivity : AppCompatActivity()
     private fun openCamera() {
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         cameraActivityResultLauncher.launch(cameraIntent)
+    }
+    private fun uploadEntryToFirebase() {
+        val loggedUserId = UserClass.loggedUser.userEmail.replace(".", "_") // Ensure UserClass has a userId property for the logged-in user
+
+        val entryObj = EntryClass().apply {
+            loggedTime = txtLoggedTime.text.toString()
+            selectedProjectName = this@NewEntryActivity.selectedProjectName
+            startTime = this@NewEntryActivity.startTime
+            endTime = this@NewEntryActivity.endTime
+            note = this@NewEntryActivity.note.text.toString()
+            user = UserClass.loggedUser.userName.toString()
+        }
+
+        val userEntriesRef = usersRef.child(loggedUserId).child("entries")
+        val newEntryRef = userEntriesRef.push()
+        newEntryRef.setValue(entryObj).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(this, "Entry added successfully", Toast.LENGTH_SHORT).show()
+                val navIntent = Intent(this, NewEntryActivity::class.java)
+                startActivity(navIntent)
+            } else {
+                Toast.makeText(this, "Failed to add entry", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
     companion object {
         private const val CAMERA_PERMISSION_CODE = 101

@@ -9,6 +9,63 @@
     tools:context=".GoalsActivity">
 
     <TextView
+        android:id="@+id/todayDateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="33dp"
+        android:text="Todays Date:"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/txtMinGoals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtToday"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/txtMaxGoalsWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="484dp"
+        android:text="Maximum Hours"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ETtodayMaxGoal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinGoals" />
+
+    <TextView
+        android:id="@+id/txtMinGoalsWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="14dp"
+        android:text="Minimum Hours"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/txtMaxGoals"
+        app:layout_constraintEnd_toStartOf="@+id/ETweekMinGoal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WeekDatesTxt" />
+
+    <ImageView
+        android:id="@+id/todayDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/ETtodayMinGoal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/todayDateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/txtGoals"
+        app:srcCompat="@drawable/clock_symbol_yellow" />
+
+    <TextView
         android:id="@+id/txtGoals"
         android:layout_width="165dp"
         android:layout_height="50dp"
@@ -40,97 +97,162 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rectangle_78" />
 
-    <TextView
-        android:id="@+id/txtGoalName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="47dp"
-        android:text="Goal Name"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/txtMinGoals"
-        app:layout_constraintEnd_toStartOf="@+id/editTextGoalName"
-        app:layout_constraintHorizontal_bias="0.097"
+    <EditText
+        android:id="@+id/ETtodayMaxGoal"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView23"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.47" />
-
-    <TextView
-        android:id="@+id/txtMinGoals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="102dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="45dp"
-        android:text="Minimum Goals"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/txtMaxGoals"
-        app:layout_constraintEnd_toStartOf="@+id/editTxtMinGoal"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintTop_toBottomOf="@+id/ETtodayMinGoal" />
 
     <TextView
         android:id="@+id/txtMaxGoals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="169dp"
-        android:layout_marginEnd="193dp"
-        android:layout_marginBottom="448dp"
-        android:text="Maximum Goals"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="284dp"
+        android:text="Maximum Hours"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTxtMaxGoal"
+        app:layout_constraintEnd_toStartOf="@+id/ETweekMaxGoal"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMinGoalsWeek" />
 
-    <EditText
-        android:id="@+id/editTextGoalName"
-        android:layout_width="173dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="36dp"
-        android:background="@android:color/white"
-        android:ems="10"
-        android:inputType="text"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/editTxtMinGoal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
+    <TextView
+        android:id="@+id/WeekDatesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="34dp"
+        android:text="Week Dates:"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/txtMinGoalsWeek"
+        app:layout_constraintEnd_toStartOf="@+id/WeekDatePicker1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtWeek" />
+
+    <TextView
+        android:id="@+id/txtMinGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="128dp"
+        android:text="Minimum Hours"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/txtMaxGoalsWeek"
+        app:layout_constraintEnd_toStartOf="@+id/ETtodayMinGoal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/txtToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="294dp"
+        android:layout_marginBottom="22dp"
+        android:text="Todays Goals:"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/todayDateTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGoals" />
 
     <EditText
-        android:id="@+id/editTxtMinGoal"
+        android:id="@+id/ETtodayMinGoal"
         android:layout_width="173dp"
         android:layout_height="27dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="39dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="66dp"
         android:background="@android:color/white"
         android:ems="10"
         android:inputType="number"
         android:text=""
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/editTxtMaxGoal"
+        app:layout_constraintBottom_toTopOf="@+id/imageView23"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/txtWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="304dp"
+        android:layout_marginBottom="20dp"
+        android:text="Week Goals:"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/WeekDatesTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+
+    <ImageView
+        android:id="@+id/WeekDatePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/ETweekMinGoal"
+        app:layout_constraintEnd_toStartOf="@+id/imageView29"
+        app:layout_constraintStart_toEndOf="@+id/WeekDatesTxt"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
+        app:srcCompat="@drawable/clock_symbol_yellow" />
 
     <EditText
-        android:id="@+id/editTxtMaxGoal"
+        android:id="@+id/ETweekMinGoal"
         android:layout_width="173dp"
         android:layout_height="27dp"
-        android:layout_marginTop="166dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginTop="316dp"
+        android:layout_marginBottom="17dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/ETweekMaxGoal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <ImageView
+        android:id="@+id/WeekDatePicker2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/ETweekMinGoal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView29"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
+        app:srcCompat="@drawable/clock_symbol_yellow" />
+
+    <EditText
+        android:id="@+id/ETweekMaxGoal"
+        android:layout_width="173dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="360dp"
         android:background="@android:color/white"
         android:ems="10"
         android:inputType="number"
@@ -141,19 +263,47 @@
         app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.219" />
 
     <Button
         android:id="@+id/btnAddGoals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="106dp"
-        android:layout_marginBottom="396dp"
         android:background="@drawable/square_button_background"
         android:text="Add Goals"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMinGoals" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.691" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.377"
+        app:srcCompat="@drawable/yellow_rectangle" />
+
+    <ImageView
+        android:id="@+id/imageView29"
+        android:layout_width="28dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="35dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toTopOf="@+id/ETweekMinGoal"
+        app:layout_constraintEnd_toStartOf="@+id/WeekDatePicker2"
+        app:layout_constraintStart_toEndOf="@+id/WeekDatePicker1"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
+        app:srcCompat="@drawable/arrow_symbol" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

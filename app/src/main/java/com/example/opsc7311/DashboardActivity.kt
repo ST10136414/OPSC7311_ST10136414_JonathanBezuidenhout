@@ -1,6 +1,7 @@
 package com.example.opsc7311
 
 import Classes.EntryClass
+import Classes.GoalClass
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
@@ -34,12 +35,34 @@ class DashboardActivity : AppCompatActivity() {
         else
         {
             val TodayLoggedTime: TextView = findViewById<TextView>(R.id.TodayLoggedTime)
-            TodayLoggedTime.text = "Nand"
+            TodayLoggedTime.text = "..."
+        }
+
+
+        //val goalsList = GoalClass.goalsMutableList
+
+        val txtWeekMin : TextView = findViewById(R.id.GoalWeekMin)
+        val txtWeekMax : TextView = findViewById(R.id.GoalWeekMax)
+        val txtTodayMin: TextView = findViewById(R.id.GoalTodayMin)
+        val txtTodayMax: TextView = findViewById(R.id.GoalTodayMax)
+
+
+        if (GoalClass.goalsMutableList.isNotEmpty()) {
+            // Retrieve the most recent entry
+            val recentGoal = GoalClass.goalsMutableList.last()
+
+
+            txtWeekMax.text = recentGoal.maxGoalWeek
+            txtWeekMin.text = recentGoal.minGoalWeek
+            txtTodayMax.text = recentGoal.maxGoalToday
+            txtTodayMin.text = recentGoal.minGoalToday
         }
 
 
 
-        val createProjBtn = findViewById<ImageView>(R.id.createProjectBtn)
+
+
+            val createProjBtn = findViewById<ImageView>(R.id.createProjectBtn)
         createProjBtn.setOnClickListener {
             val crProjIntent = Intent(this, CreateProject::class.java)
             startActivity(crProjIntent)

@@ -1,14 +1,12 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-
-
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.opsc7311"
     compileSdk = 34
-    viewBinding.enable = true
     viewBinding.enable = true
 
     defaultConfig {
@@ -51,9 +49,15 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.mpAndroidChart)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.mpAndroidChart)
-    implementation(libs.firebase.database)
+
+    // Use the Firebase BOM to manage versions
+    implementation(platform("com.google.firebase:firebase-bom:31.0.1"))
+    implementation("com.google.firebase:firebase-database-ktx")
+    // Add other Firebase dependencies here, all managed by the BOM
 }
+
+apply(plugin = "com.google.gms.google-services")
