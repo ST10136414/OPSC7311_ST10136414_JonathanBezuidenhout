@@ -81,7 +81,7 @@ class NewEntryActivity : AppCompatActivity()
         btnCreateNewEntry = findViewById<ImageButton>(R.id.imgButtonAddEntry)
         txtLoggedTime = findViewById<TextView>(R.id.txtDisplayLoggedTime)
 
-        val spinnerItems = ProjectClass.projectMutableList.map{it.projectName}
+        val spinnerItems = ProjectClass.projectMutableList.map { it.projectName }
 
         spinSelectedProjectName = findViewById<Spinner>(R.id.spinSelectProject)
         btnFrom = findViewById<TextView>(R.id.txtFrom)
@@ -121,17 +121,19 @@ class NewEntryActivity : AppCompatActivity()
                 id: Long
             ) {
 
-                // Get the selected item as a string
-                val selectedItem = spinnerItems[position]//parent.getItemAtPosition(position).toString()
+                    // Get the selected item as a string
+                    val selectedItem =
+                        spinnerItems[position]//parent.getItemAtPosition(position).toString()
 
-                //val selectedProject = ProjectClass.projectMutableList.find{}
-                selectedProjectName = selectedItem
-                // Perform actions with the selected item
+                    //val selectedProject = ProjectClass.projectMutableList.find{}
+                    selectedProjectName = selectedItem
+                    // Perform actions with the selected item
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
             }
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-        }
         btnTakePicture.setOnClickListener()
         {
             checkCameraPermission()
@@ -146,6 +148,15 @@ class NewEntryActivity : AppCompatActivity()
             entryObj.endTime = endTime
             entryObj.note = note.text.toString()
             entryObj.user = UserClass.loggedUser.userName.toString()
+
+            //Find project where projectName =  selectedProjectName
+            //val project = ProjectClass()
+            /*
+            val project = ProjectClass.projectMutableList.find { it.projectName==selectedProjectName }
+            if (project != null) {
+                project.totaltime = (project.totaltime.toInt()+ convertTime(entryObj.loggedTime)).toString()
+            }*/
+
 
             //stores all previous as entryObj in EntryClass static list
             EntryClass.entryMutableList.add(entryObj)
@@ -222,7 +233,7 @@ class NewEntryActivity : AppCompatActivity()
                     EntryClass.capturedImages.add(it)
                 }
 
-                Toast.makeText(this, "Image captured and saved!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Image captured and saved!", Toast.LENGTH_SHORT).show()
 
                 Toast.makeText(this, "Image captured and saved!", Toast.LENGTH_SHORT).show()
 

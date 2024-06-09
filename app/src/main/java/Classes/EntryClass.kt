@@ -18,9 +18,4 @@ class EntryClass
         val capturedImages = mutableListOf<Bitmap>()
     }
 
-
-
-
-
-
 }
