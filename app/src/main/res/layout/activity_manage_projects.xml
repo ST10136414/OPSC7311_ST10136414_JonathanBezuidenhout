@@ -9,6 +9,18 @@
     tools:context=".Manage_projects">
 
     <ImageView
+        android:id="@+id/backBtn2"
+        android:layout_width="28dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/ManagePR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrowsymbol" />
+
+    <ImageView
         android:id="@+id/timeEntryDisplay"
         android:layout_width="342dp"
         android:layout_height="362dp"
@@ -93,10 +105,10 @@
         android:textAppearance="@style/create_a_pr"
         app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintHorizontal_bias="0.326"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.491" />
 
     <Spinner
         android:id="@+id/projectSpinner"

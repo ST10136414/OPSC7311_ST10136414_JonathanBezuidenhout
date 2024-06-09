@@ -8,6 +8,18 @@
     android:background="@color/black"
     tools:context=".GoalsActivity">
 
+    <ImageView
+        android:id="@+id/backBtn1"
+        android:layout_width="28dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="34dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtGoals"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrowsymbol" />
+
     <TextView
         android:id="@+id/todayDateTxt"
         android:layout_width="wrap_content"

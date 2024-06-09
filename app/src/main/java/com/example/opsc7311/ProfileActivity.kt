@@ -45,6 +45,17 @@ class ProfileActivity : AppCompatActivity() {
         profileImageButton.setOnClickListener {
             checkCameraPermission()
         }
+
+
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn3)
+        backBtn.setOnClickListener{
+            val DashboardIntent = Intent(this, DashboardActivity::class.java)
+            startActivity(DashboardIntent)
+        }
+
+
+
     }
 
     private fun checkCameraPermission() {

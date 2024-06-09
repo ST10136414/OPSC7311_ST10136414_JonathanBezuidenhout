@@ -12,6 +12,18 @@
     android:outlineSpotShadowColor="@color/black"
     tools:context=".ProfileActivity">
 
+    <ImageView
+        android:id="@+id/backBtn3"
+        android:layout_width="28dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtProfileTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrowsymbol" />
+
     <TextView
         android:id="@+id/txtProfileTitle"
         android:layout_width="wrap_content"
@@ -24,9 +36,10 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/rectangle_3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/txtUsername"

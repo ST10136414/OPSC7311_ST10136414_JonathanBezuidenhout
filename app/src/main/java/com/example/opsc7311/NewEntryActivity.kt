@@ -21,6 +21,7 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -171,6 +172,19 @@ class NewEntryActivity : AppCompatActivity()
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+
+
+        val backBtn = findViewById<ImageView>(R.id.btnBack)
+        backBtn.setOnClickListener{
+            val DashboardIntent = Intent(this, DashboardActivity::class.java)
+            startActivity(DashboardIntent)
+        }
+
+
+
+
     }
     private fun showTimePicker(onTimeSelected: (Calendar) -> Unit) {
         // Get the current time

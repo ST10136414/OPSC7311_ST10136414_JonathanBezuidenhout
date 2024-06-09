@@ -4,6 +4,7 @@ import Classes.GoalClass
 import Classes.ProjectClass
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.media.Image
 import android.os.Bundle
 import android.widget.Button
@@ -181,6 +182,18 @@ class GoalsActivity : AppCompatActivity() {
             Toast.makeText(this, "Goal Saved!", Toast.LENGTH_SHORT).show()
 
         }
+
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn1)
+        backBtn.setOnClickListener{
+            val DashboardIntent = Intent(this, DashboardActivity::class.java)
+            startActivity(DashboardIntent)
+        }
+
+
+
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
