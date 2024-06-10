@@ -7,21 +7,24 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class CreateProject : AppCompatActivity() {
-    private var projectClass = ProjectClass()
+    private lateinit var database: FirebaseDatabase
+    // private var projectClass = ProjectClass()
     private var cal = Calendar.getInstance()
     private lateinit var etProjectName:EditText
-    private lateinit var etProjectColour:EditText
+    //private lateinit var etProjectColour:EditText
     private lateinit var etClientName:EditText
     private lateinit var etStartDate:TextView
     private lateinit var etEndDate :TextView
@@ -44,7 +47,7 @@ class CreateProject : AppCompatActivity() {
         etBudget = findViewById<EditText>(R.id.editTxtBudget)
         etHourlyRate = findViewById<EditText>(R.id.editTxtHourlyRate)
         btnCreateProject = findViewById<Button>(R.id.btnDisplayTotalHours)
-
+        database = FirebaseDatabase.getInstance()
 
 
 
@@ -68,7 +71,9 @@ class CreateProject : AppCompatActivity() {
 
         btnCreateProject.setOnClickListener()
         {
-            val newProject = projectClass
+
+            uploadProjectToFirebase(etProjectName.text.toString(), etClientName.text.toString(), etStartDate.text.toString(),etEndDate.text.toString(),etBudget.text.toString(),etHourlyRate.text.toString())
+            /*val newProject = projectClass
             newProject.projectName = etProjectName.text.toString()
             newProject.clientName = etClientName.text.toString()
             newProject.startDate = etStartDate.text.toString()
@@ -84,9 +89,9 @@ class CreateProject : AppCompatActivity() {
             etEndDate.text = ""
             etBudget.text.clear()
             etHourlyRate.text.clear()
-            Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
+            *///Toast.makeText(this, listSize.toString(), Toast.LENGTH_SHORT).show()
             val intent = Intent(this, DashboardActivity::class.java)
-            //
+
             val projectNamesList = ArrayList<String>()
             for (project in projectList) {
                 projectNamesList.add(project.projectName)
@@ -110,6 +115,15 @@ class CreateProject : AppCompatActivity() {
                 cal.get(Calendar.MONTH),
                 cal.get(Calendar.DAY_OF_MONTH)).show()
         }
+
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener{
+            val DashboardIntent = Intent(this, DashboardActivity::class.java)
+            startActivity(DashboardIntent)
+        }
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -136,5 +150,30 @@ class CreateProject : AppCompatActivity() {
         etEndDate.text = sdf.format(this.cal.time)
     }
     //-----------------------------------------------------//
+
+    private fun uploadProjectToFirebase(projectName: String, clientName: String, startDate: String,endDate:String,budget:String,hourlyRate:String) {
+        val projectRef = database.getReference("projects")
+
+        val newProject = ProjectClass()
+        newProject.projectName = projectName
+        newProject.clientName = clientName
+        newProject.startDate = startDate
+        newProject.endDate = endDate
+        newProject.budget = budget
+        newProject.hourlyRate = hourlyRate
+        // Create a new instance of UserClass
+        //val userObj = UserClass()
+
+        // Set user properties one by one
+        //userObj.userName = userName
+        // userObj.userEmail = email
+        // userObj.passWord = password
+
+        // Push the user object to Firebase
+        val newProjectCreation = projectRef.push()
+        newProjectCreation.setValue(newProject)
+
+        Toast.makeText(this, "Project saved successfully", Toast.LENGTH_SHORT).show()
+    }
 }
 //-------------------------------------------END OF FILE----------------------------------------------//
