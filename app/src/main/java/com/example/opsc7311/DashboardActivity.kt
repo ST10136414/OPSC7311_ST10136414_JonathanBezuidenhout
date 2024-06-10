@@ -114,6 +114,13 @@ class DashboardActivity : AppCompatActivity() {
             Toast.makeText(this,"This opens the view report page", Toast.LENGTH_SHORT).show()
         }
 
+        val workCountImg = findViewById<ImageView>(R.id.workCountImg)
+        workCountImg.setOnClickListener{
+            val graphsIntent = Intent(this, TotalHoursWorkedActivity::class.java)
+            startActivity(graphsIntent)
+        }
+
+
     }
 
     private fun GoalsFromDatabase(){

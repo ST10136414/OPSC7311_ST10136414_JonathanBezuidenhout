@@ -2,23 +2,21 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CreateProject">
-        <State />
-      </entry>
-      <entry key="GoalsActivity">
-        <State />
-      </entry>
-      <entry key="NewEntryActivity">
-        <State />
-      </entry>
-      <entry key="SignInActivity">
-        <State />
-      </entry>
-      <entry key="TotalHoursWorkedActivity">
-        <State />
-      </entry>
       <entry key="app">
-        <State />
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\brice\.android\avd\Pixel_7_Pro_API_34_newnewnew.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-06-10T17:23:44.162929600Z" />
+        </State>
       </entry>
     </value>
   </component>

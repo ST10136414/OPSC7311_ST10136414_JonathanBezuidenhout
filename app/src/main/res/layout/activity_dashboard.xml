@@ -243,11 +243,11 @@
         android:layout_height="150dp"
         app:layout_constraintBottom_toTopOf="@+id/rectangle_4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/component_1" />
+        app:layout_constraintVertical_bias="0.145"
+        app:srcCompat="@drawable/rectangle_37" />
 
     <ScrollView
         android:layout_width="413dp"
@@ -545,6 +545,33 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/GraphsLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Graphs"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/workCountImg"
+        app:layout_constraintEnd_toEndOf="@+id/workCountImg"
+        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintStart_toStartOf="@+id/workCountImg"
+        app:layout_constraintTop_toTopOf="@+id/workCountImg"
+        app:layout_constraintVertical_bias="0.211" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:rotation="-90"
+        app:layout_constraintBottom_toBottomOf="@+id/workCountImg"
+        app:layout_constraintEnd_toEndOf="@+id/workCountImg"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="@+id/workCountImg"
+        app:layout_constraintTop_toTopOf="@+id/workCountImg"
+        app:layout_constraintVertical_bias="0.642"
+        app:srcCompat="@drawable/timesheet_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
