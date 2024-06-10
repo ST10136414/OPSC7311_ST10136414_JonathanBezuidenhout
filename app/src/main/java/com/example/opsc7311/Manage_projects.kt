@@ -82,8 +82,8 @@ class Manage_projects : AppCompatActivity() {
 
 
 
-        val currentTotal = projectObj.totaltime.toInt()
-        val newTotal = convertMinutesToHoursAndMinutes(currentTotal)
+        //val currentTotal = projectObj.totaltime.toInt()
+        //val newTotal = convertMinutesToHoursAndMinutes(currentTotal)
 
         // convert int to hours and minutes
 
