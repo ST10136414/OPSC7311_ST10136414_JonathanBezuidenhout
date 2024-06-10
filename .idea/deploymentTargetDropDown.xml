@@ -8,6 +8,12 @@
       <entry key="NewEntryActivity">
         <State />
       </entry>
+      <entry key="SignUpActivity">
+        <State />
+      </entry>
+      <entry key="TimeSheetActivity">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>
