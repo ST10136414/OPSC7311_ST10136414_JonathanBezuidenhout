@@ -512,15 +512,18 @@ import Classes.EntryClass
 import Classes.ProjectClass
 import Classes.UserClass
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.DatePicker
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
@@ -537,6 +540,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.Calendar
+import java.util.Locale
 
 class NewEntryActivity : AppCompatActivity() {
     private lateinit var btnCreateNewEntry: ImageButton
@@ -552,10 +556,11 @@ class NewEntryActivity : AppCompatActivity() {
     private lateinit var btnTo: TextView
     private lateinit var note: TextInputEditText
     private lateinit var btnTakePicture: TextView
-    private lateinit var btnDateCompleted:String
+    private lateinit var btnDateCompleted:TextView
     private lateinit var database: FirebaseDatabase
     private lateinit var projectsRef: DatabaseReference
-
+    private lateinit var txtDateCompleted:String
+    private var cal = Calendar.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -572,9 +577,18 @@ class NewEntryActivity : AppCompatActivity() {
         btnTo = findViewById(R.id.txtTo)
         note = findViewById(R.id.txtNote)
         btnTakePicture = findViewById(R.id.txtAddImage)
-
+        btnDateCompleted = findViewById(R.id.txtDateCompleted)
         // Load projects from Firebase and populate the spinner
         loadProjectsFromFirebase()
+
+        val completedDateSetListener = object: DatePickerDialog.OnDateSetListener{
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                cal.set(Calendar.YEAR,year)
+                cal.set(Calendar.MONTH,month)
+                cal.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+                updateCompletedTimeEditText()
+            }
+        }
 
         btnFrom.setOnClickListener {
             showTimePicker { calendar ->
@@ -597,6 +611,13 @@ class NewEntryActivity : AppCompatActivity() {
             checkCameraPermission()
         }
 
+        btnDateCompleted.setOnClickListener{
+            DatePickerDialog(this@NewEntryActivity,completedDateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
         btnCreateNewEntry.setOnClickListener {
             val entryObj = EntryClass().apply {
                 loggedTime = txtLoggedTime.text.toString()
@@ -605,6 +626,7 @@ class NewEntryActivity : AppCompatActivity() {
                 endTime = this@NewEntryActivity.endTime
                 note = this@NewEntryActivity.note.text.toString()
                 user = UserClass.loggedUser.userName
+                dateCompleted = txtDateCompleted
             }
 
             // Store all previous entries in EntryClass static list
@@ -668,6 +690,15 @@ class NewEntryActivity : AppCompatActivity() {
         return ""
     }
 
+    //-----------------------------------------------------//
+    //Function to update the start date TextView
+    private fun updateCompletedTimeEditText()
+   {
+        val myFormat = "MM/dd/yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        txtDateCompleted = sdf.format(this.cal.time)
+   }
+   //
     private fun showTimePicker(onTimeSelected: (Calendar) -> Unit) {
         val calendar = Calendar.getInstance()
         val currentHour = calendar.get(Calendar.HOUR_OF_DAY)

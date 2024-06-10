@@ -161,13 +161,6 @@ class CreateProject : AppCompatActivity() {
         newProject.endDate = endDate
         newProject.budget = budget
         newProject.hourlyRate = hourlyRate
-        // Create a new instance of UserClass
-        //val userObj = UserClass()
-
-        // Set user properties one by one
-        //userObj.userName = userName
-        // userObj.userEmail = email
-        // userObj.passWord = password
 
         // Push the user object to Firebase
         val newProjectCreation = projectRef.push()

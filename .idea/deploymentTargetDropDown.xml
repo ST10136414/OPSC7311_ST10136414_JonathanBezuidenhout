@@ -2,16 +2,19 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CreateProject">
+      <entry key="NewEntryActivity">
         <State />
       </entry>
-      <entry key="NewEntryActivity">
+      <entry key="SignInActivity">
         <State />
       </entry>
       <entry key="SignUpActivity">
         <State />
       </entry>
       <entry key="TimeSheetActivity">
+        <State />
+      </entry>
+      <entry key="TotalHoursWorkedActivity">
         <State />
       </entry>
       <entry key="app">
