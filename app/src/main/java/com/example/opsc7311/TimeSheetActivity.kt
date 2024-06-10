@@ -121,6 +121,7 @@ class TimeSheetActivity : AppCompatActivity(){
         }
     }
 }*/
+/*
 package com.example.opsc7311
 
 import Classes.EntryClass
@@ -196,15 +197,25 @@ class TimeSheetActivity : AppCompatActivity() {
         uSpinner.adapter = adapter
 
         uSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                // Handle user selection if needed
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedProjectName = spinnerItems[position]
+                loadEntriesFromFirebase() // Pass the selected project name here
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Handle case when nothing is selected (if needed)
             }
         }
+
+
     }
+
+    //old and stinky!
 
     private fun loadEntriesFromFirebase() {
         projectsRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -225,9 +236,182 @@ class TimeSheetActivity : AppCompatActivity() {
             }
         })
     }
+    //new and fresh
+    /*
+    private fun loadEntriesFromFirebase(projectName: String) {
+        projectsRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val entriesList = mutableListOf<EntryClass>()
+                for (projectSnapshot in dataSnapshot.children) {
+                    if (projectSnapshot.key == projectName) {
+                        val projectEntries = projectSnapshot.child("entries").children
+                        for (entrySnapshot in projectEntries) {
+                            val entry = entrySnapshot.getValue(EntryClass::class.java)
+                            entry?.let { entriesList.add(it) }
+                        }
+                        break // Stop after finding the selected project
+                    }
+                }
+                displayEntries(entriesList)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@TimeSheetActivity, "Failed to load entries", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }*/
+
+
+
 
     private fun displayEntries(entriesList: List<EntryClass>) {
         if (entriesList.isEmpty()) {
+            Toast.makeText(this, "No entries found in the database", Toast.LENGTH_SHORT).show()
+        } else {
+            val stringBuilder = StringBuilder()
+            for (entry in entriesList) {
+                stringBuilder.append("[${entry.selectedProjectName}] \nNotes: ${entry.note}\nTime Logged: ${entry.loggedTime}\nStartTime: ${entry.startTime}\n\n")
+            }
+            entriesTextView.text = stringBuilder.toString()
+        }
+    }
+}
+*/
+package com.example.opsc7311
+
+import Classes.EntryClass
+import Classes.ProjectClass
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.database.*
+
+class TimeSheetActivity : AppCompatActivity() {
+    private lateinit var database: FirebaseDatabase
+    private lateinit var projectsRef: DatabaseReference
+    private lateinit var entriesTextView: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_time_sheet)
+
+        // Initialize Firebase
+        database = FirebaseDatabase.getInstance()
+        projectsRef = database.getReference("projects")
+
+        entriesTextView = findViewById(R.id.tvTimeSheetName)
+
+        // Load entries from Firebase
+        loadEntriesFromFirebase()
+
+        // Navigation section
+        setupNavigation()
+
+        // Initialize spinner with user names
+        setupUserSpinner()
+    }
+
+    private fun setupNavigation() {
+        findViewById<ImageView>(R.id.CalendarButton).setOnClickListener {
+            startActivity(Intent(this, CalendarActivity::class.java))
+        }
+        findViewById<ImageView>(R.id.navBtnDash).setOnClickListener {
+            startActivity(Intent(this, DashboardActivity::class.java))
+        }
+        findViewById<ImageView>(R.id.navBtnTimer).setOnClickListener {
+            startActivity(Intent(this, TimerActivity::class.java))
+        }
+        findViewById<ImageView>(R.id.navBtnMore).setOnClickListener {
+            startActivity(Intent(this, MoreOptionsActivity::class.java))
+        }
+        findViewById<ImageView>(R.id.navBtnReport).setOnClickListener {
+            Toast.makeText(this, "This opens the view report page", Toast.LENGTH_SHORT).show()
+        }
+        findViewById<ImageView>(R.id.newEntryBtn).setOnClickListener {
+            startActivity(Intent(this, NewEntryActivity::class.java))
+        }
+    }
+
+    private fun setupUserSpinner() {
+        val spinnerItems = mutableListOf<String>()
+
+        val uSpinner: Spinner = findViewById(R.id.user_spinner)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        uSpinner.adapter = adapter
+
+        // Load project names from Firebase
+        loadProjectNamesFromFirebase(spinnerItems, adapter)
+
+        uSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedProjectName = spinnerItems[position]
+                loadEntriesFromFirebase(selectedProjectName) // Pass the selected project name here
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle case when nothing is selected (if needed)
+            }
+        }
+    }
+
+    private fun loadProjectNamesFromFirebase(spinnerItems: MutableList<String>, adapter: ArrayAdapter<String>) {
+        projectsRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (projectSnapshot in dataSnapshot.children) {
+                    val projectName = projectSnapshot.child("projectName").value.toString()
+                    spinnerItems.add(projectName)
+                }
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@TimeSheetActivity, "Failed to load project names", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun loadEntriesFromFirebase(projectName: String = "All Projects") {
+        projectsRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val entriesList = mutableListOf<EntryClass>()
+                for (projectSnapshot in dataSnapshot.children) {
+                    if (projectName == "All Projects" || projectSnapshot.child("projectName").value == projectName) {
+                        val projectEntries = projectSnapshot.child("entries").children
+                        for (entrySnapshot in projectEntries) {
+                            val entry = entrySnapshot.getValue(EntryClass::class.java)
+                            entry?.let { entriesList.add(it) }
+                        }
+                    }
+                }
+                displayEntries(entriesList)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@TimeSheetActivity, "Failed to load entries", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun displayEntries(entriesList: List<EntryClass>) {
+        if (entriesList.isEmpty()) {
+            entriesTextView.text = ""
             Toast.makeText(this, "No entries found in the database", Toast.LENGTH_SHORT).show()
         } else {
             val stringBuilder = StringBuilder()
