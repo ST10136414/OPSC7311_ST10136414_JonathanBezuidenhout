@@ -18,6 +18,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.database.FirebaseDatabase
 import org.w3c.dom.Text
 import java.util.Calendar
 import java.text.SimpleDateFormat
@@ -39,15 +40,11 @@ class GoalsActivity : AppCompatActivity() {
     private var cal = Calendar.getInstance()
 
 
-    private var TodayTime: Calendar? = null
-
-    private var weekStartTime: Calendar? = null
-    private var weekEndTime: Calendar? = null
-
-
     private lateinit var btnTodayDate: ImageView
     private lateinit var btnWeekStart: ImageView
     private lateinit var btnWeekEnd: ImageView
+
+    private lateinit var database: FirebaseDatabase
 
 
     val goalsList = GoalClass.goalsMutableList
@@ -69,34 +66,6 @@ class GoalsActivity : AppCompatActivity() {
         btnWeekEnd = findViewById<ImageView>(R.id.WeekDatePicker2)
 
 
-/*
-        btnTodayDate.setOnClickListener {
-            showTimePicker { calendar ->
-                TodayTime = calendar
-                //txtLoggedTime.text = "First Time: ${formatTime(calendar)}"
-                TodayDateStr = "${formatTime(calendar)}"
-                Toast.makeText(this, TodayDateStr, Toast.LENGTH_SHORT).show()
-            }
-        }
-
-
-        btnWeekStart.setOnClickListener {
-            showTimePicker { calendar ->
-                weekStartTime = calendar
-                WeekStartStr = "${formatTime(calendar)}"
-                Toast.makeText(this, WeekStartStr, Toast.LENGTH_SHORT).show()
-            }
-        }
-        btnWeekEnd.setOnClickListener {
-            showTimePicker { calendar ->
-                weekEndTime = calendar
-                WeekEndStr = "${formatTime(calendar)}"
-                Toast.makeText(this, WeekEndStr, Toast.LENGTH_SHORT).show()
-            }
-        }
-
-
-*/
 
 
         val todayDateSetListener = object: DatePickerDialog.OnDateSetListener{
@@ -166,11 +135,12 @@ class GoalsActivity : AppCompatActivity() {
             newGoalobj.maxGoalWeek = txtWeekMaxGoal.text.toString()
             newGoalobj.minGoalWeek = txtWeekMinGoal.text.toString()
 
-            newGoalobj.TodayDate= TodayDateStr
+            /*newGoalobj.TodayDate= TodayDateStr
             newGoalobj.WeekStartDate = WeekStartStr
-            newGoalobj.WeekEndDate = WeekEndStr
+            newGoalobj.WeekEndDate = WeekEndStr*/
 
 
+            uploadGoalToFirebase(newGoalobj.maxGoalToday,newGoalobj.minGoalToday,newGoalobj.maxGoalWeek,newGoalobj.minGoalWeek)
 
             goalsList.add(newGoalobj)
             txtTodayMaxGoal.text.clear()
@@ -178,7 +148,7 @@ class GoalsActivity : AppCompatActivity() {
             txtWeekMinGoal.text.clear()
             txtWeekMaxGoal.text.clear()
 
-            Toast.makeText(this, "Goal Saved!", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "Goal Saved!", Toast.LENGTH_SHORT).show()
 
         }
 
@@ -211,36 +181,22 @@ class GoalsActivity : AppCompatActivity() {
         WeekEndStr = sdf.format(this.cal.time)
     }
 
-/*
-    private fun showTimePicker(onTimeSelected: (Calendar) -> Unit) {
-        // Get the current time
-        val calendar = Calendar.getInstance()
-        val currentHour = calendar.get(Calendar.HOUR_OF_DAY)
-        val currentMinute = calendar.get(Calendar.MINUTE)
+    private fun uploadGoalToFirebase(todayMaxGoal: String, todayMinGoal: String, weekMaxGoal: String, weekMinGoal: String) {
+        val goalObj = GoalClass()
 
-        // Create the TimePickerDialog
-        val timePickerDialog = TimePickerDialog(
-            this,
-            { _, hourOfDay, minute ->
-                // Create a Calendar object with the selected time
-                val selectedCalendar = Calendar.getInstance().apply {
-                    set(Calendar.HOUR_OF_DAY, hourOfDay)
-                    set(Calendar.MINUTE, minute)
-                }
+        goalObj.maxGoalToday = todayMaxGoal
+        goalObj.minGoalToday = todayMinGoal
+        goalObj.maxGoalWeek = weekMaxGoal
+        goalObj.minGoalWeek= weekMinGoal
 
-                // Call the callback function with the selected time
-                onTimeSelected(selectedCalendar)
-            },
-            currentHour,
-            currentMinute,
-            true // 24-hour format
-        )
-        timePickerDialog.show()
+        database.getReference("goals").push().setValue(goalObj)
+        Toast.makeText(this, "Goal added successfully", Toast.LENGTH_SHORT).show()
     }
-    private fun formatTime(calendar: Calendar): String {
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-        return String.format("%02d:%02d", hour, minute)
-    }
-*/
+
+
+
+
+
+
+
 }

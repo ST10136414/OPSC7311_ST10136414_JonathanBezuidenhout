@@ -201,6 +201,7 @@ class SignInActivity : AppCompatActivity() {
 */
 package com.example.opsc7311
 
+import Classes.GoalClass
 import Classes.UserClass
 import android.content.Intent
 import android.os.Bundle
@@ -227,6 +228,12 @@ class SignInActivity : AppCompatActivity() {
         // Initialize Firebase
         database = FirebaseDatabase.getInstance()
         usersRef = database.getReference("users")
+        //uploadGoalToFirebase("10","3","30","40")
+
+
+
+
+
 
         val previousPageBtnAgain = findViewById<Button>(R.id.previousPageBtn)
         previousPageBtnAgain.setOnClickListener {
@@ -239,6 +246,7 @@ class SignInActivity : AppCompatActivity() {
             val forgotPassIntent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(forgotPassIntent)
         }
+
 
         val emailET = findViewById<EditText>(R.id.emailTxtBoxSignIn)
         val passET = findViewById<EditText>(R.id.passwordTxtBoxSignIn)
@@ -294,4 +302,21 @@ class SignInActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.emailTxtBoxSignIn).text.clear()
         findViewById<EditText>(R.id.passwordTxtBoxSignIn).text.clear()
     }
+
+    /*
+    private fun uploadGoalToFirebase(todayMaxGoal: String, todayMinGoal: String, weekMaxGoal: String, weekMinGoal: String) {
+    val goalObj = GoalClass()
+
+    goalObj.maxGoalToday = todayMaxGoal
+    goalObj.minGoalToday = todayMinGoal
+    goalObj.maxGoalWeek = weekMaxGoal
+    goalObj.minGoalWeek= weekMinGoal
+
+    database.getReference("goals").push().setValue(goalObj)
+    Toast.makeText(this, "Goal added successfully", Toast.LENGTH_SHORT).show()
+}
+*/
+
+
+
 }
