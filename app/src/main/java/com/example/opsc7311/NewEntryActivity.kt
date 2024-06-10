@@ -519,15 +519,24 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ImageButton
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.database.*
 import com.google.android.material.textfield.TextInputEditText
-import java.util.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import java.util.Calendar
 
 class NewEntryActivity : AppCompatActivity() {
     private lateinit var btnCreateNewEntry: ImageButton
@@ -543,7 +552,7 @@ class NewEntryActivity : AppCompatActivity() {
     private lateinit var btnTo: TextView
     private lateinit var note: TextInputEditText
     private lateinit var btnTakePicture: TextView
-
+    private lateinit var btnDateCompleted:String
     private lateinit var database: FirebaseDatabase
     private lateinit var projectsRef: DatabaseReference
 
