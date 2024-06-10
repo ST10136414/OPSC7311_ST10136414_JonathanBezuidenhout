@@ -15,6 +15,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="34dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintEnd_toStartOf="@+id/txtGoals"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,12 +26,13 @@
         android:id="@+id/todayDateTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="37dp"
         android:layout_marginBottom="33dp"
         android:text="Todays Date:"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/txtMinGoals"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintEnd_toStartOf="@+id/ETtodayMinGoal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtToday"
         app:layout_constraintVertical_bias="1.0" />
@@ -39,12 +42,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginBottom="30dp"
         android:text="Maximum Hours"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/ETtodayMaxGoal"
+        app:layout_constraintBottom_toTopOf="@+id/imageView23"
         app:layout_constraintEnd_toStartOf="@+id/ETtodayMaxGoal"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <TextView
         android:id="@+id/txtMinGoalsWeek"
@@ -52,29 +58,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
+        android:layout_marginBottom="32dp"
         android:text="Minimum Hours"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/txtMaxGoals"
         app:layout_constraintEnd_toStartOf="@+id/ETweekMinGoal"
-        app:layout_constraintTop_toTopOf="@+id/ETweekMinGoal" />
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ETweekMinGoal"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/todayDatePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="213dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/ETtodayMinGoal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
         app:layout_constraintStart_toEndOf="@+id/todayDateTxt"
-        app:layout_constraintTop_toBottomOf="@+id/txtGoals"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/clock_symbol_yellow" />
 
     <TextView
         android:id="@+id/txtGoals"
-        android:layout_width="165dp"
-        android:layout_height="50dp"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="22dp"
         android:fontFamily="@font/anton"
@@ -86,7 +98,7 @@
         app:layout_constraintHorizontal_bias="0.317"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194" />
+        app:layout_constraintVertical_bias="0.222" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -108,6 +120,7 @@
         android:layout_width="173dp"
         android:layout_height="27dp"
         android:layout_marginTop="19dp"
+        android:layout_marginEnd="68dp"
         android:layout_marginBottom="20dp"
         android:background="@android:color/white"
         android:ems="10"
@@ -116,57 +129,60 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/imageView23"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETtodayMinGoal" />
+        app:layout_constraintTop_toBottomOf="@+id/ETtodayMinGoal"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtMaxGoals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Maximum Hours"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ETweekMaxGoal"
-        app:layout_constraintTop_toTopOf="@+id/ETweekMaxGoal" />
+        app:layout_constraintHorizontal_bias="0.806"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ETweekMaxGoal"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/WeekDatesTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="48dp"
         android:text="Week Dates:"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/txtMinGoalsWeek"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
-        tools:layout_editor_absoluteX="29dp" />
+        app:layout_constraintVertical_bias="0.138" />
 
     <TextView
         android:id="@+id/txtMinGoals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
+        android:layout_marginBottom="36dp"
         android:text="Minimum Hours"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/txtMaxGoalsWeek"
         app:layout_constraintEnd_toStartOf="@+id/ETtodayMinGoal"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ETtodayMinGoal"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtToday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="294dp"
         android:layout_marginBottom="22dp"
         android:text="Todays Goals:"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/todayDateTxt"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGoals" />
 
@@ -174,36 +190,43 @@
         android:id="@+id/ETtodayMinGoal"
         android:layout_width="173dp"
         android:layout_height="27dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="60dp"
         android:background="@android:color/white"
         android:ems="10"
         android:inputType="number"
         android:text=""
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/imageView23"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <TextView
         android:id="@+id/txtWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="13dp"
         android:text="Week Goals:"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/WeekDatesTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
-        tools:layout_editor_absoluteX="29dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/WeekDatePicker1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/ETweekMinGoal"
+        app:layout_constraintStart_toEndOf="@+id/WeekDatesTxt"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
-        app:srcCompat="@drawable/clock_symbol_yellow"
-        tools:layout_editor_absoluteX="170dp" />
+        app:layout_constraintVertical_bias="0.166"
+        app:srcCompat="@drawable/clock_symbol_yellow" />
 
     <EditText
         android:id="@+id/ETweekMinGoal"
@@ -226,10 +249,16 @@
         android:id="@+id/WeekDatePicker2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/ETweekMinGoal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView29"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
-        app:srcCompat="@drawable/clock_symbol_yellow"
-        tools:layout_editor_absoluteX="262dp" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/clock_symbol_yellow" />
 
     <EditText
         android:id="@+id/ETweekMaxGoal"
@@ -267,12 +296,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="276dp"
         android:layout_marginEnd="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388"
         app:srcCompat="@drawable/yellow_rectangle" />
 
     <ImageView
@@ -280,9 +310,12 @@
         android:layout_width="28dp"
         android:layout_height="14dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="164dp"
         android:rotation="180"
+        app:layout_constraintBottom_toTopOf="@+id/ETweekMinGoal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
-        app:srcCompat="@drawable/arrow_symbol"
-        tools:layout_editor_absoluteX="215dp" />
+        app:layout_constraintVertical_bias="0.125"
+        app:srcCompat="@drawable/arrow_symbol" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
