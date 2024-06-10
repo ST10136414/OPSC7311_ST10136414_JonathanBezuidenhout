@@ -1,5 +1,6 @@
 package com.example.opsc7311
 
+import Classes.GoalClass
 import Classes.UserClass
 import android.app.Activity
 import android.content.Intent
@@ -17,16 +18,39 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.ImageView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var profileImageButton: ImageView
+    private lateinit var database: FirebaseDatabase
+    private lateinit var profileRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_profile)
 
+        database = FirebaseDatabase.getInstance()
+        profileRef = database.getReference("users")
+
+
+        val currentUser = UserClass.loggedUser
+
         val userTxt = findViewById<TextView>(R.id.txtUsername)
+
+        //code displays username
+        if (currentUser != null)
+        {
+            userTxt.text = currentUser.userName
+        }
+        else
+        {
+            userTxt.text = "User Profile Not Found"
+        }
 
         if (UserClass.userMutableList.isNullOrEmpty()) {
         } else {
@@ -85,4 +109,35 @@ class ProfileActivity : AppCompatActivity() {
     companion object {
         private const val CAMERA_PERMISSION_CODE = 101
     }
+
+/*
+    private fun loadProfileData() {
+        val loggedUserName = UserClass.loggedUser.userName
+
+        profileRef.orderByChild("userName").equalTo(loggedUserName).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (userSnapshot in dataSnapshot.children) {
+                        val user = userSnapshot.getValue(UserClass::class.java)
+                        if (user != null) {
+                            findViewById<TextView>(R.id.txtUsername).text = user.userName
+                            //findViewById<TextView>(R.id.txtEmail).text = user.userEmail
+                            //findViewById<TextView>(R.id.txtPassword).text = user.passWord
+                        }
+                    }
+                } else {
+                    Toast.makeText(this@ProfileActivity, "User not found", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@ProfileActivity, "Error: ${databaseError.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }*/
+
+
+
+
+
 }
