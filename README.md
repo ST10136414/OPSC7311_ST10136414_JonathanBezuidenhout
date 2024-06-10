@@ -3,9 +3,9 @@ TIME DIVERS
 OVERVIEW
 
 HOW TO RUN 
-Unzip the PRoject folder called OPSC7311_ST10136414_JonathanBezuidenhout.zip or Timedivers_JonathanBezuidenhout_ST10136414_ST10072411_ST10108388_ST10202241.zip 
+Unzip the Project folder called OPSC7311_ST10136414_JonathanBezuidenhout.zip or Timedivers_JonathanBezuidenhout_ST10136414_ST10072411_ST10108388_ST10202241.zip 
 or clone repository https://github.com/ST10136414/OPSC7311_ST10136414_JonathanBezuidenhout or https://github.com/VCCT-OPSC7311-G1-2024/Timedivers_JonathanBezuidenhout_ST10136414_ST10072411_ST10108388_ST10202241
-then open the app in Android studio and sync peoject files with gradle and then run it on the emulator.
+then open the app in Android studio and sync project files with gradle and then run it on the emulator.
 
 FEATURES including 2 added features 
 -Sign in page 
