@@ -212,7 +212,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 
 class SignInActivity : AppCompatActivity() {
 
@@ -228,10 +227,7 @@ class SignInActivity : AppCompatActivity() {
         // Initialize Firebase
         database = FirebaseDatabase.getInstance()
         usersRef = database.getReference("users")
-        // Write a message to the database
-        val myRef = database.getReference("message")
 
-        myRef.setValue("Hello, World!")
         val previousPageBtnAgain = findViewById<Button>(R.id.previousPageBtn)
         previousPageBtnAgain.setOnClickListener {
             val previousPageIntent = Intent(this, MainActivity::class.java)

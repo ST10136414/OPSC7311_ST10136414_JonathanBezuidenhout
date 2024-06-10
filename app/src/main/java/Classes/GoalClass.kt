@@ -7,9 +7,9 @@ class GoalClass
     lateinit var maxGoalWeek:String
     lateinit var minGoalWeek:String
 
-    lateinit var TodayDate:String
-    lateinit var WeekStartDate:String
-    lateinit var WeekEndDate:String
+//    lateinit var TodayDate:String
+//    lateinit var WeekStartDate:String
+//    lateinit var WeekEndDate:String
 
     //lateinit var goalName:String
 
