@@ -21,10 +21,10 @@ import java.util.Locale
 
 class CreateProject : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
-   // private var projectClass = ProjectClass()
+    // private var projectClass = ProjectClass()
     private var cal = Calendar.getInstance()
     private lateinit var etProjectName:EditText
-    private lateinit var etProjectColour:EditText
+    //private lateinit var etProjectColour:EditText
     private lateinit var etClientName:EditText
     private lateinit var etStartDate:TextView
     private lateinit var etEndDate :TextView
@@ -95,9 +95,9 @@ class CreateProject : AppCompatActivity() {
             val projectNamesList = ArrayList<String>()
             for (project in projectList) {
                 projectNamesList.add(project.projectName)
-          }
-          intent.putStringArrayListExtra("projectNames", projectNamesList)
-          startActivity(intent)
+            }
+            intent.putStringArrayListExtra("projectNames", projectNamesList)
+            startActivity(intent)
         }
 
         etStartDate.setOnClickListener()
@@ -166,14 +166,14 @@ class CreateProject : AppCompatActivity() {
 
         // Set user properties one by one
         //userObj.userName = userName
-       // userObj.userEmail = email
-       // userObj.passWord = password
+        // userObj.userEmail = email
+        // userObj.passWord = password
 
         // Push the user object to Firebase
         val newProjectCreation = projectRef.push()
         newProjectCreation.setValue(newProject)
 
-       Toast.makeText(this, "Project saved successfully", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Project saved successfully", Toast.LENGTH_SHORT).show()
     }
 }
 //-------------------------------------------END OF FILE----------------------------------------------//

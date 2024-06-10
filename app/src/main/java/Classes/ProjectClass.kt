@@ -1,5 +1,7 @@
 package Classes
 
+import java.util.Date
+
 class ProjectClass
 {
     lateinit var projectName:String
@@ -9,7 +11,7 @@ class ProjectClass
     lateinit var endDate: String
     lateinit var budget: String
     lateinit var hourlyRate: String
-   // lateinit var totaltime: String
+    //lateinit var totaltime: String
 
 
     companion object {

@@ -2,15 +2,21 @@ package com.example.opsc7311
 
 import Classes.EntryClass
 import Classes.ProjectClass
+import Classes.UserClass
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import java.security.KeyStore.Entry
 
 class Manage_projects : AppCompatActivity() {
 
@@ -78,7 +84,7 @@ class Manage_projects : AppCompatActivity() {
 
 
 
-       // val currentTotal = projectObj.totaltime.toInt()
+        //val currentTotal = projectObj.totaltime.toInt()
         //val newTotal = convertMinutesToHoursAndMinutes(currentTotal)
 
         // convert int to hours and minutes
@@ -102,6 +108,12 @@ class Manage_projects : AppCompatActivity() {
                 }
 
             }
+        }
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn2)
+        backBtn.setOnClickListener{
+            val DashboardIntent = Intent(this, DashboardActivity::class.java)
+            startActivity(DashboardIntent)
         }
 
 
